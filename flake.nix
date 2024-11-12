@@ -117,10 +117,38 @@
 
       home.packages = with pkgs; [
         pkgs.wezterm
+        pkgs.spaceship-prompt
       ];
+
+      programs.zsh = {
+        enable = true;
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
+
+        # bit hacky way to source the theme but it works :shrug:
+        initExtra = ''
+          source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
+        '';
+
+        shellAliases = {
+          ll = "ls -l";
+          update-nix = "nix run nix-darwin -- switch --flake ~/code/nix-config";
+        };
+
+        history = {
+          size = 1000000;
+        };
+
+        oh-my-zsh = {
+          enable = true;
+          plugins = [ "git" "z" "terraform" "poetry"];
+        };
+      };
 
       home.sessionVariables = {
         EDITOR = "vim";
+        LANG = "en_US.UTF-8";
       };
 
       home.file.".vimrc".source = ./dotfiles/vim_config;
