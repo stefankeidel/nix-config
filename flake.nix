@@ -118,7 +118,6 @@
         pkgs.nodejs
         pkgs.coreutils
         pkgs.ripgrep
-        pkgs.fzf
       ];
 
       programs.zsh = {
@@ -148,6 +147,11 @@
           enable = true;
           plugins = [ "git" "z" "terraform" "poetry"];
         };
+      };
+
+      programs.fzf = {
+        enable = true;
+        enableZshIntegration = true;
       };
 
       home.sessionVariables = {
