@@ -37,6 +37,34 @@
         # key repeat
         system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
+        # dock position right
+        system.defaults.dock.orientation = "left";
+
+        # various auto subs
+        system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+        system.defaults.NSGlobalDomain.NSAutomaticInlinePredictionEnabled = false;
+        system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+        system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+        system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+        system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+
+        system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
+
+        system.defaults.NSGlobalDomain.AppleFontSmoothing = 2;
+        system.defaults.finder.AppleShowAllExtensions = true;
+        system.defaults.finder.ShowStatusBar = true;
+        system.defaults.finder.ShowPathbar = true;
+
+        system.defaults.finder.QuitMenuItem = true;
+        system.defaults.finder._FXShowPosixPathInTitle = true;
+        system.defaults.finder._FXSortFoldersFirst = true;
+        system.defaults.finder.FXDefaultSearchScope = "SCcf";
+        system.defaults.finder.FXEnableExtensionChangeWarning = false;
+
+        system.defaults.finder.FXPreferredViewStyle = "Nlsv";
+
+        system.defaults.dock.minimize-to-application = true;
+
         # stop asking for sudo perms
         security.pam.enableSudoTouchIdAuth = true;
 
