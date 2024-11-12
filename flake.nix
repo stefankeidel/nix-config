@@ -131,7 +131,7 @@
         pkgs.signal-desktop
         pkgs.spaceship-prompt
         pkgs.terraform
-        pkgs.terraform-lsp
+        pkgs.terraform-ls
         pkgs.vim
         pkgs.wezterm
       ];
