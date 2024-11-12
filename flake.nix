@@ -122,19 +122,18 @@
       programs.home-manager.enable = true;
 
       home.packages = with pkgs; [
-        pkgs.wezterm
-        pkgs.spaceship-prompt
-        pkgs.neofetch
-        pkgs.vim
-        pkgs.nodejs
-        pkgs.coreutils
-        pkgs.ripgrep
-        pkgs.terraform-lsp
-        pkgs.terraform
         pkgs.azure-cli
-        pkgs.kubectl
+        pkgs.coreutils
         pkgs.k9s
+        pkgs.kubectl
+        pkgs.nodejs
+        pkgs.ripgrep
         pkgs.signal-desktop
+        pkgs.spaceship-prompt
+        pkgs.terraform
+        pkgs.terraform-lsp
+        pkgs.vim
+        pkgs.wezterm
       ];
 
       programs.zsh = {
