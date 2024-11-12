@@ -107,9 +107,8 @@
             "bitwarden-cli"
           ];
           casks = [
-            {
-              name = "firefox";
-            }
+            "firefox"
+            "docker"
           ];
         };
     };
