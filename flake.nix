@@ -27,6 +27,16 @@
 
         system.configurationRevision = self.rev or self.dirtyRev or null;
 
+        # trackpad stuff
+        system.defaults.trackpad.TrackpadRightClick = true;
+        system.defaults.trackpad.Clicking = false;
+        system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
+        system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;
+        system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = true;
+
+        # key repeat
+        system.defaults.NSGlobalDomain.KeyRepeat = 2;
+
         # stop asking for sudo perms
         security.pam.enableSudoTouchIdAuth = true;
 
@@ -39,9 +49,9 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
 
         # Declare the user that will be running `nix-darwin`.
-        users.users."stefan.keidel" = {
-            name = "stefan.keidel";
-            home = "/Users/stefan.keidel";
+        users.users."stefan.keidel@lichtblick.de" = {
+            name = "stefan.keidel@lichtblick.de";
+            home = "/Users/stefan.keidel@lichtblick.de";
         };
 
         # Create /etc/zshrc that loads the nix-darwin environment.
@@ -50,6 +60,14 @@
         environment.systemPackages = [
           pkgs.neofetch
           pkgs.vim
+          pkgs.nodejs
+          pkgs.emacs29
+          pkgs.coreutils
+          pkgs.ripgrep
+        ];
+
+        fonts.packages = with pkgs; [
+          pkgs.nerdfonts
         ];
 
         homebrew = {
@@ -69,31 +87,31 @@
       # Let home-manager install and manage itself.
       programs.home-manager.enable = true;
 
-      home.packages = with pkgs; [
-      ];
+      home.packages = with pkgs; [];
 
       home.sessionVariables = {
         EDITOR = "vim";
       };
 
-      home.file.".vimrc".source = ./dotfiles/vim_config;
-
-      # Emacs configuration
-      programs.emacs = {
+      programs.wezterm = {
         enable = true;
+        enableZshIntegration = true;
+        extraConfig = builtins.readFile ./dotfiles/weztermconfig.lua;
       };
+
+      home.file.".vimrc".source = ./dotfiles/vim_config;
     };
 
   in
   {
-    darwinConfigurations."Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Stefan-Keidel-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         home-manager.darwinModules.home-manager  {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
-          home-manager.users."stefan.keidel" = homeconfig;
+          home-manager.users."stefan.keidel@lichtblick.de" = homeconfig;
         }
       ];
     };
