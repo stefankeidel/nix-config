@@ -176,13 +176,17 @@
         VISUAL = "vim";
         LANG = "en_US.UTF-8";
         LC_ALL = "en_US.UTF-8";
-        MANPAER = "less -X";
+        MANPAGER = "less -X";
         PYTHONBREAKPOINT = "pudb.set_trace";
         BAT_THEME = "TwoDark";
+
+        # correct grey for zsh autocomplete
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=243";
 
         # Always-true work stuff
         AIRFLOW_UID = 502;
         AIRFLOW_GID = 0;
+        AIRFLOW_PLATFORM = "linux/arm64";
       };
 
       home.file.".vimrc".source = ./dotfiles/vim_config;
