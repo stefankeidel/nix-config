@@ -134,6 +134,7 @@
         pkgs.azure-cli
         pkgs.kubectl
         pkgs.k9s
+        pkgs.signal-desktop
       ];
 
       programs.zsh = {
