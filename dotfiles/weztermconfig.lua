@@ -16,5 +16,7 @@ config.font_size = 19.0
 
 config.window_close_confirmation = 'NeverPrompt'
 
+config.front_end = "WebGpu"
+
 -- and finally, return the configuration to wezterm
 return config

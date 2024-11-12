@@ -87,19 +87,16 @@
       # Let home-manager install and manage itself.
       programs.home-manager.enable = true;
 
-      home.packages = with pkgs; [];
+      home.packages = with pkgs; [
+        pkgs.wezterm
+      ];
 
       home.sessionVariables = {
         EDITOR = "vim";
       };
 
-      programs.wezterm = {
-        enable = true;
-        enableZshIntegration = true;
-        extraConfig = builtins.readFile ./dotfiles/weztermconfig.lua;
-      };
-
       home.file.".vimrc".source = ./dotfiles/vim_config;
+      home.file.".wezterm.lua".source = ./dotfiles/weztermconfig.lua;
     };
 
   in
