@@ -5,6 +5,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     nix-darwin = {
         url = "github:LnL7/nix-darwin";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
@@ -24,6 +24,9 @@
         services.nix-daemon.enable = true;
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
+
+        # terraform is unfree :-/
+        nixpkgs.config.allowUnfree = true;
 
         system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -64,6 +67,7 @@
         system.defaults.finder.FXPreferredViewStyle = "Nlsv";
 
         system.defaults.dock.minimize-to-application = true;
+        system.defaults.dock.show-recents = false;
 
         # stop asking for sudo perms
         security.pam.enableSudoTouchIdAuth = true;
@@ -95,11 +99,18 @@
 
         homebrew = {
           enable = true;
-          # onActivation.cleanup = "uninstall";
+
+          onActivation.cleanup = "uninstall";
 
           taps = [];
-          brews = [];
-          casks = [];
+          brews = [
+            "bitwarden-cli"
+          ];
+          casks = [
+            {
+              name = "firefox";
+            }
+          ];
         };
     };
 
@@ -118,6 +129,11 @@
         pkgs.nodejs
         pkgs.coreutils
         pkgs.ripgrep
+        pkgs.terraform-lsp
+        pkgs.terraform
+        pkgs.azure-cli
+        pkgs.kubectl
+        pkgs.k9s
       ];
 
       programs.zsh = {
@@ -129,6 +145,7 @@
         # bit hacky way to source the theme but it works :shrug:
         initExtra = ''
           source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
+          eval "$(/opt/homebrew/bin/brew shellenv)"
 
           source ~/.functions
           source ~/.extra
