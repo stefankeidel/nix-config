@@ -86,12 +86,7 @@
         programs.zsh.enable = true;
 
         environment.systemPackages = [
-          pkgs.neofetch
-          pkgs.vim
-          pkgs.nodejs
           pkgs.emacs29
-          pkgs.coreutils
-          pkgs.ripgrep
         ];
 
         fonts.packages = with pkgs; [
@@ -118,6 +113,12 @@
       home.packages = with pkgs; [
         pkgs.wezterm
         pkgs.spaceship-prompt
+        pkgs.neofetch
+        pkgs.vim
+        pkgs.nodejs
+        pkgs.coreutils
+        pkgs.ripgrep
+        pkgs.fzf
       ];
 
       programs.zsh = {
@@ -129,6 +130,9 @@
         # bit hacky way to source the theme but it works :shrug:
         initExtra = ''
           source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
+
+          source ~/.functions
+          source ~/.extra
         '';
 
         shellAliases = {
@@ -148,11 +152,24 @@
 
       home.sessionVariables = {
         EDITOR = "vim";
+        VISUAL = "vim";
         LANG = "en_US.UTF-8";
+        LC_ALL = "en_US.UTF-8";
+        MANPAER = "less -X";
+        PYTHONBREAKPOINT = "pudb.set_trace";
+        BAT_THEME = "TwoDark";
+
+        # Always-true work stuff
+        AIRFLOW_UID = 502;
+        AIRFLOW_GID = 0;
       };
 
       home.file.".vimrc".source = ./dotfiles/vim_config;
       home.file.".wezterm.lua".source = ./dotfiles/weztermconfig.lua;
+      home.file.".functions".source = ./dotfiles/functions;
+      home.file.".hushlogin".source = ./dotfiles/hushlogin;
+      home.file.".gitconfig".source = ./dotfiles/gitconfig;
+      home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
     };
 
   in
