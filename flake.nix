@@ -122,10 +122,14 @@
 
       home.packages = with pkgs; [
         pkgs.azure-cli
+        pkgs.broot
         pkgs.coreutils
+        pkgs.direnv
+        pkgs.eza
         pkgs.k9s
         pkgs.kubectl
         pkgs.kubelogin
+        pkgs.nix-direnv
         pkgs.nodejs
         pkgs.pyright
         pkgs.ripgrep
