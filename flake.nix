@@ -126,6 +126,7 @@
         pkgs.k9s
         pkgs.kubectl
         pkgs.nodejs
+        pkgs.pyright
         pkgs.ripgrep
         pkgs.signal-desktop
         pkgs.spaceship-prompt
@@ -181,6 +182,11 @@
 
         # correct grey for zsh autocomplete
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=243";
+
+        # no async fetching of azure sub on every prompt
+        SPACESHIP_AZURE_SHOW = "false";
+        SPACESHIP_PROMPT_ASYNC = "false"; # irritating af
+        SPACESHIP_DOCKER_SHOW = "false"; # what good does the version do
 
         # Always-true work stuff
         AIRFLOW_UID = 502;
