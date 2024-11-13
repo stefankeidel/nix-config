@@ -1,9 +1,15 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # for pinning poetry to 1.6.1
+    # https://github.com/NixOS/nixpkgs/commit/881e946d8b96b1c52d74e2b69792aa89354feffd
+    poetrypin.url = "github:NixOS/nixpkgs/881e946d8b96b1c52d74e2b69792aa89354feffd";
+  };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, poetrypin }:
     let
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      poetpkgs = import poetrypin { system = "aarch64-darwin"; };
       # A list of shell names and their Python versions
       pythonVersions = {
         python39 = pkgs.python39;
@@ -13,13 +19,14 @@
         python313 = pkgs.python313;
         default = pkgs.python312;
       };
+      
       # A function to make a shell with a python version
       makePythonShell = shellName: pythonPackage: pkgs.mkShell {
         # You could add extra packages you need here too
         packages = [
           pythonPackage
-          pkgs.poetry
-        ]; 
+          poetpkgs.poetry
+        ];
         # You can also add commands that run on shell startup with shellHook
         shellHook = ''
           # Ensure credentials are set if needed
