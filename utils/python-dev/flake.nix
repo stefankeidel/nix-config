@@ -17,6 +17,7 @@
       makePythonShell = shellName: pythonPackage: pkgs.mkShell {
         # You could add extra packages you need here too
         packages = [
+          pythonPackage
           pkgs.poetry
         ]; 
         # You can also add commands that run on shell startup with shellHook
@@ -36,7 +37,7 @@
           poetry config virtualenvs.in-project true
 
           # Install dependencies
-          poetry install
+          poetry install --with dev
         '';
       };
     in
