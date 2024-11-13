@@ -125,6 +125,7 @@
         pkgs.coreutils
         pkgs.k9s
         pkgs.kubectl
+        pkgs.kubelogin
         pkgs.nodejs
         pkgs.pyright
         pkgs.ripgrep
@@ -132,6 +133,7 @@
         pkgs.spaceship-prompt
         pkgs.terraform
         pkgs.terraform-ls
+        pkgs.tree-sitter
         pkgs.vim
         pkgs.wezterm
       ];
