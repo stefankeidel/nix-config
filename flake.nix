@@ -135,6 +135,7 @@
         pkgs.ripgrep
         pkgs.signal-desktop
         pkgs.spaceship-prompt
+        pkgs.spotify
         pkgs.terraform
         pkgs.terraform-ls
         pkgs.tree-sitter
