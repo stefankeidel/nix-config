@@ -159,9 +159,11 @@
         '';
 
         shellAliases = {
-          ll = "ls -l";
+          ll = "eza -l";
           update-nix = "nix run nix-darwin -- switch --flake ~/code/nix-config";
           pythonShell = "nix develop ~/code/nix-config/utils/python-dev#python311 -c $SHELL";
+          k = "kubectl -n data";
+          j = "helm --namespace data";
         };
 
         history = {
