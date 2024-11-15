@@ -130,6 +130,7 @@
         pkgs.coreutils
         pkgs.direnv
         pkgs.eza
+        pkgs.git
         pkgs.k9s
         pkgs.kubectl
         pkgs.kubelogin
@@ -214,6 +215,7 @@
       home.file.".hushlogin".source = ./dotfiles/hushlogin;
       home.file.".gitconfig".source = ./dotfiles/gitconfig;
       home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
+      home.file."./.dbt/profiles.yml".source = ./dotfiles/dbt-profiles.yml;
     };
 
   in
