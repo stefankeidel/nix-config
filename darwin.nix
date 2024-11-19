@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, userConfig, ... }: 
 
 {
   services.nix-daemon.enable = true;
@@ -58,12 +58,12 @@
 
   # The platform the configuration will be used on.
   # If you're on an Intel system, replace with "x86_64-darwin"
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  #nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Declare the user that will be running `nix-darwin`.
-  users.users."stefan.keidel@lichtblick.de" = {
-      name = "stefan.keidel@lichtblick.de";
-      home = "/Users/stefan.keidel@lichtblick.de";
+  users.users."${userConfig.name}" = {
+      name = "${userConfig.name}";
+      home = "${userConfig.home}";
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
