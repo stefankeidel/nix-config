@@ -8,7 +8,7 @@
   # terraform is unfree :-/
   nixpkgs.config.allowUnfree = true;
 
-  system.configurationRevision = self.rev or self.dirtyRev or null;
+  #system.configurationRevision = self.rev or self.dirtyRev or null;
 
   # trackpad stuff
   system.defaults.trackpad.TrackpadRightClick = true;

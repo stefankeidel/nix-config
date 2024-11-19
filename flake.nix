@@ -16,9 +16,9 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }: {
     darwinConfigurations = {
-      hostname = darwin.lib.darwinSystem {
+      "Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin.nix
