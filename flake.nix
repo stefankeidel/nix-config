@@ -130,6 +130,7 @@
         pkgs.k9s
         pkgs.kubectl
         pkgs.kubelogin
+        pkgs.kubernetes-helm
         pkgs.nix-direnv
         pkgs.nodejs
         pkgs.pyright
@@ -165,7 +166,7 @@
           update-nix = "nix run nix-darwin -- switch --flake ~/code/nix-config";
           pythonShell = "nix develop ~/code/nix-config/utils/python-dev#python311 -c $SHELL";
           k = "kubectl -n data";
-          j = "helm --namespace data";
+          h = "helm --namespace data";
         };
 
         history = {
