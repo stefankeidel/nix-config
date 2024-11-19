@@ -146,6 +146,7 @@
         pkgs.vim
         pkgs.wezterm
         pkgs.wget
+        pkgs.python312
       ];
 
       programs.zsh = {
