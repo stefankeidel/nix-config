@@ -136,6 +136,7 @@
         pkgs.ripgrep
         pkgs.signal-desktop
         pkgs.spaceship-prompt
+        pkgs.speedtest-cli
         pkgs.spotify
         pkgs.terraform
         pkgs.terraform-ls
@@ -216,7 +217,7 @@
 
   in
   {
-    darwinConfigurations."Stefan-Keidel-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         home-manager.darwinModules.home-manager  {
