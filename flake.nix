@@ -124,6 +124,7 @@
         pkgs.azure-cli
         pkgs.broot
         pkgs.coreutils
+        pkgs.curl
         pkgs.direnv
         pkgs.eza
         pkgs.git
@@ -144,6 +145,7 @@
         pkgs.tree-sitter
         pkgs.vim
         pkgs.wezterm
+        pkgs.wget
       ];
 
       programs.zsh = {
