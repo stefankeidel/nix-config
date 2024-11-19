@@ -1,14 +1,13 @@
-# ~/.config/nix/flake.nix
-
 {
-  description = "My system configuration";
+  description = "Stefans Laptop config";
+
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
-        url = "github:LnL7/nix-darwin";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -17,220 +16,25 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
-  let
-    configuration = {pkgs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+    darwinConfigurations = {
+      hostname = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
 
-        services.nix-daemon.enable = true;
-        # Necessary for using flakes on this system.
-        nix.settings.experimental-features = "nix-command flakes";
+            home-manager.users."stefan.keidel@lichtblick.de" = import ./home.nix;
 
-        # terraform is unfree :-/
-        nixpkgs.config.allowUnfree = true;
-
-        system.configurationRevision = self.rev or self.dirtyRev or null;
-
-        # trackpad stuff
-        system.defaults.trackpad.TrackpadRightClick = true;
-        system.defaults.trackpad.Clicking = false;
-        system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
-        system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;
-        system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = true;
-
-        # key repeat
-        system.defaults.NSGlobalDomain.KeyRepeat = 2;
-
-        # dock position right
-        system.defaults.dock.orientation = "left";
-
-        # various auto subs
-        system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-        system.defaults.NSGlobalDomain.NSAutomaticInlinePredictionEnabled = false;
-        system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-        system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-        system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-        system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-
-        system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
-
-        system.defaults.NSGlobalDomain.AppleFontSmoothing = 2;
-        system.defaults.finder.AppleShowAllExtensions = true;
-        system.defaults.finder.ShowStatusBar = true;
-        system.defaults.finder.ShowPathbar = true;
-
-        system.defaults.finder.QuitMenuItem = true;
-        system.defaults.finder._FXShowPosixPathInTitle = true;
-        system.defaults.finder._FXSortFoldersFirst = true;
-        system.defaults.finder.FXDefaultSearchScope = "SCcf";
-        system.defaults.finder.FXEnableExtensionChangeWarning = false;
-
-        system.defaults.finder.FXPreferredViewStyle = "Nlsv";
-
-        system.defaults.dock.minimize-to-application = true;
-        system.defaults.dock.show-recents = false;
-
-        # stop asking for sudo perms
-        security.pam.enableSudoTouchIdAuth = true;
-
-        # Used for backwards compatibility. please read the changelog
-        # before changing: `darwin-rebuild changelog`.
-        system.stateVersion = 4;
-
-        # The platform the configuration will be used on.
-        # If you're on an Intel system, replace with "x86_64-darwin"
-        nixpkgs.hostPlatform = "aarch64-darwin";
-
-        # Declare the user that will be running `nix-darwin`.
-        users.users."stefan.keidel@lichtblick.de" = {
-            name = "stefan.keidel@lichtblick.de";
-            home = "/Users/stefan.keidel@lichtblick.de";
-        };
-
-        # Create /etc/zshrc that loads the nix-darwin environment.
-        programs.zsh.enable = true;
-
-        environment.systemPackages = [
-          pkgs.emacs29
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
-
-        fonts.packages = with pkgs; [
-          (nerdfonts.override { fonts = [ "Hack" ]; })
-        ];
-
-        homebrew = {
-          enable = true;
-
-          onActivation.cleanup = "uninstall";
-
-          taps = [];
-          brews = [
-            "bitwarden-cli"
-          ];
-          casks = [
-            "firefox"
-            "docker"
-          ];
-        };
-    };
-
-    homeconfig = {pkgs, ...}: {
-      # this is internal compatibility configuration 
-      # for home-manager, don't change this!
-      home.stateVersion = "23.05";
-      # Let home-manager install and manage itself.
-      programs.home-manager.enable = true;
-
-      home.packages = with pkgs; [
-        pkgs.azure-cli
-        pkgs.broot
-        pkgs.coreutils
-        pkgs.curl
-        pkgs.direnv
-        pkgs.eza
-        pkgs.git
-        pkgs.k9s
-        pkgs.kubectl
-        pkgs.kubelogin
-        pkgs.kubernetes-helm
-        pkgs.nix-direnv
-        pkgs.nodejs
-        pkgs.pyright
-        pkgs.ripgrep
-        pkgs.signal-desktop
-        pkgs.spaceship-prompt
-        pkgs.speedtest-cli
-        pkgs.spotify
-        pkgs.terraform
-        pkgs.terraform-ls
-        pkgs.tree-sitter
-        pkgs.vim
-        pkgs.wezterm
-        pkgs.wget
-        pkgs.python312
-      ];
-
-      programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
-
-        # bit hacky way to source the theme but it works :shrug:
-        initExtra = ''
-          source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
-          eval "$(/opt/homebrew/bin/brew shellenv)"
-
-          source ~/.functions
-          source ~/.extra
-        '';
-
-        shellAliases = {
-          ll = "eza -l";
-          update-nix = "nix run nix-darwin -- switch --flake ~/code/nix-config";
-          pythonShell = "nix develop ~/code/nix-config/utils/python-dev#python311 -c $SHELL";
-          k = "kubectl -n data";
-          h = "helm --namespace data";
-        };
-
-        history = {
-          size = 1000000;
-        };
-
-        oh-my-zsh = {
-          enable = true;
-          plugins = [ "git" "z" "terraform" "poetry"];
-        };
       };
-
-      programs.fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-
-      home.sessionVariables = {
-        EDITOR = "vim";
-        VISUAL = "vim";
-        LANG = "en_US.UTF-8";
-        LC_ALL = "en_US.UTF-8";
-        MANPAGER = "less -X";
-        PYTHONBREAKPOINT = "pudb.set_trace";
-        BAT_THEME = "TwoDark";
-
-        # correct grey for zsh autocomplete
-        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=243";
-
-        # no async fetching of azure sub on every prompt
-        SPACESHIP_AZURE_SHOW = "false";
-        SPACESHIP_PROMPT_ASYNC = "false"; # irritating af
-        SPACESHIP_DOCKER_SHOW = "false"; # what good does the version do
-
-        # Always-true work stuff
-        AIRFLOW_UID = 502;
-        AIRFLOW_GID = 0;
-        AIRFLOW_PLATFORM = "linux/arm64";
-      };
-
-      home.file.".vimrc".source = ./dotfiles/vim_config;
-      home.file.".wezterm.lua".source = ./dotfiles/weztermconfig.lua;
-      home.file.".functions".source = ./dotfiles/functions;
-      home.file.".hushlogin".source = ./dotfiles/hushlogin;
-      home.file.".gitconfig".source = ./dotfiles/gitconfig;
-      home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
-      home.file."./.dbt/profiles.yml".source = ./dotfiles/dbt-profiles.yml;
-    };
-
-  in
-  {
-    darwinConfigurations."Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [
-        configuration
-        home-manager.darwinModules.home-manager  {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.verbose = true;
-          home-manager.users."stefan.keidel@lichtblick.de" = homeconfig;
-        }
-      ];
     };
   };
 }
