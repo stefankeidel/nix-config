@@ -26,6 +26,7 @@
         packages = [
           pythonPackage
           poetpkgs.poetry
+          pkgs.postgresql
         ];
         # You can also add commands that run on shell startup with shellHook
         shellHook = ''
