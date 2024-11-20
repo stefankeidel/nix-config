@@ -58,7 +58,7 @@
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
 
-            home-manager.users."stefam" = import ./home.nix;
+            home-manager.users."stefan" = import ./home.nix;
           }
         ];
       };
