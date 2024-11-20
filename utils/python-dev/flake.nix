@@ -45,7 +45,7 @@
           poetry config virtualenvs.in-project true
 
           # Install dependencies
-          poetry install --with dev
+          poetry install
         '';
       };
     in
