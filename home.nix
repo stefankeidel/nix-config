@@ -11,7 +11,6 @@
 
   home.packages = with pkgs; [
     pkgs.azure-cli
-    pkgs.broot
     pkgs.coreutils
     pkgs.curl
     pkgs.direnv
@@ -38,6 +37,11 @@
     pkgs.wezterm
     pkgs.wget
   ];
+
+  programs.bat.enable = true;
+  programs.broot.enable = true;
+  programs.tmux.enable = true;
+  programs.jq.enable = true;
 
   programs.zsh = {
     enable = true;
