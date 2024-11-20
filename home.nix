@@ -17,6 +17,7 @@
     pkgs.direnv
     pkgs.eza
     pkgs.git
+    pkgs.jetbrains.datagrip
     pkgs.k9s
     pkgs.kubectl
     pkgs.kubelogin
@@ -24,6 +25,7 @@
     pkgs.nix-direnv
     pkgs.nodejs
     pkgs.pyright
+    pkgs.python312
     pkgs.ripgrep
     pkgs.signal-desktop
     pkgs.spaceship-prompt
@@ -35,7 +37,6 @@
     pkgs.vim
     pkgs.wezterm
     pkgs.wget
-    pkgs.python312
   ];
 
   programs.zsh = {
