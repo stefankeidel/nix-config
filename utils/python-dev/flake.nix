@@ -28,6 +28,7 @@
           poetpkgs.poetry
           pkgs.postgresql
           pkgs.openssl
+          pkgs.azure-cli
         ];
         # You can also add commands that run on shell startup with shellHook
         shellHook = ''
