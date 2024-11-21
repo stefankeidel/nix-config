@@ -27,6 +27,7 @@
           pythonPackage
           poetpkgs.poetry
           pkgs.postgresql
+          pkgs.openssl
         ];
         # You can also add commands that run on shell startup with shellHook
         shellHook = ''
