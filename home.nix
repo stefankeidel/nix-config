@@ -52,7 +52,12 @@
     # bit hacky way to source the theme but it works :shrug:
     initExtra = ''
       source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+
+      if [[ $(uname -m) == "arm64" ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      else
+        eval "$(/usr/local/bin/brew shellenv)"
+      fi
 
       source ~/.functions
       source ~/.extra
