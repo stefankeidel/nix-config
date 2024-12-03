@@ -22,10 +22,4 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
 
       - name: Build Nix Flake
-        run: nix run nix-darwin -- build --flake .
-
-          #nix build .#darwinConfigurations.<hostname>.system --extra-experimental-features nix-command --extra-experimental-features flakes
-
-      # - name: Verify Configuration
-      #   run: |
-      #     nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
+        run: nix run nix-darwin -- build --flake .#Stefan-Keidel-MacBook-Pro
