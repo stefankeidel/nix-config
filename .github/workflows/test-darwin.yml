@@ -1,9 +1,9 @@
-name: Test Nix Flake on macOS
+name: Test Nix Darwin Flake on macOS
 
 on:
   push:
     branches:
-      - feat/cicd
+      - main
   pull_request:
 
 jobs:

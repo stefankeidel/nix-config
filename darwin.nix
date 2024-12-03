@@ -74,7 +74,8 @@
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.hack
+    # nerd-fonts.hack
+    (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
 
   homebrew = {
