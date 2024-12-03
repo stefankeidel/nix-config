@@ -1,4 +1,4 @@
-name: Update Nix Darwin Flake Lock
+name: Update Flake Lockfiles
 on:
   workflow_dispatch:
   schedule:
