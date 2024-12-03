@@ -15,6 +15,7 @@
     pkgs.coreutils
     pkgs.curl
     pkgs.direnv
+    pkgs.docker-client
     pkgs.eza
     pkgs.git
     pkgs.jetbrains.datagrip
