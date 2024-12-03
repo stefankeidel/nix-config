@@ -21,6 +21,7 @@
     pkgs.kubectl
     pkgs.kubelogin
     pkgs.kubernetes-helm
+    pkgs.minikube
     pkgs.nix-direnv
     pkgs.nodejs
     pkgs.pyright
