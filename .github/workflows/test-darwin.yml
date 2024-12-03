@@ -1,0 +1,25 @@
+name: Test Nix Darwin Flake on macOS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Build Nix Flake
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check Flake Inputs
+        uses: DeterminateSystems/flake-checker-action@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Build Nix Flake
+        run: nix run nix-darwin -- build --flake .#Stefan-Keidel-MacBook-Pro
