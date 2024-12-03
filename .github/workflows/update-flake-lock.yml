@@ -5,7 +5,7 @@ on:
     - cron: '0 10 * * SAT'
 
 jobs:
-  lockfile:
+  lockfile-mac:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -24,6 +24,32 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         with:
           pr-title: "Update flake.lock"
+          pr-labels: |
+            dependencies
+            automated
+
+  lockfile-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Use Magic Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Check Flake Inputs
+        uses: DeterminateSystems/flake-checker-action@main
+        with:
+          flake-lock-path: 'utils/python-dev/flake.lock'
+
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          path-to-flake-dir: 'utils/python-dev'
+          pr-title: "Update flake.lock for Python Environment"
           pr-labels: |
             dependencies
             automated
