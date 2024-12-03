@@ -1,0 +1,29 @@
+name: Update Nix Darwin Flake Lock
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * SAT'
+
+jobs:
+  lockfile:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Magic Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Check Flake Inputs
+        uses: DeterminateSystems/flake-checker-action@main
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          pr-title: "Update flake.lock"
+          pr-labels: |
+            dependencies
+            automated
