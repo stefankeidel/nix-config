@@ -1,0 +1,28 @@
+name: Test Nix Flake on macOS
+
+on:
+  push:
+    branches:
+      - feat/cicd
+  pull_request:
+
+jobs:
+  build:
+    name: Build Nix Flake
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Build Nix Flake
+        run: nix run nix-darwin -- switch --flake .
+
+          #nix build .#darwinConfigurations.<hostname>.system --extra-experimental-features nix-command --extra-experimental-features flakes
+
+      # - name: Verify Configuration
+      #   run: |
+      #     nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
