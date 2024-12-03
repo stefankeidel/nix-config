@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     pkgs.azure-cli
+    pkgs.colima
     pkgs.coreutils
     pkgs.curl
     pkgs.direnv

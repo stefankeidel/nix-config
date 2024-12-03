@@ -88,7 +88,6 @@
     ];
     casks = [
       "firefox"
-      "docker"
     ];
   };
 }
