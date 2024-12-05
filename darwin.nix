@@ -84,9 +84,6 @@
     onActivation.cleanup = "uninstall";
 
     taps = [];
-    brews = [
-      "bitwarden-cli"
-    ];
     casks = [
       "firefox"
     ];
