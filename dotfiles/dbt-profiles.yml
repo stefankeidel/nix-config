@@ -117,7 +117,7 @@ b2c:
       client_session_keep_alive: False
       query_tag: dev_dbt
 
-    dev: &dev-platform
+    dev:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
 
