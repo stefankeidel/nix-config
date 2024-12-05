@@ -1,4 +1,4 @@
-{ pkgs, userConfig, ... }: 
+{ pkgs, pkgs-bwcli, userConfig, ... }: 
 
 {
   services.nix-daemon.enable = true;
@@ -71,6 +71,7 @@
 
   environment.systemPackages = [
     pkgs.emacs29
+    pkgs-bwcli.bitwarden-cli
   ];
 
   fonts.packages = with pkgs; [
