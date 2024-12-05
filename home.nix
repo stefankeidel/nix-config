@@ -15,18 +15,25 @@
     pkgs.coreutils
     pkgs.curl
     pkgs.direnv
-    pkgs.docker-client
     pkgs.docker-buildx
+    pkgs.docker-client
     pkgs.eza
     pkgs.git
+    pkgs.httpie
     pkgs.jetbrains.datagrip
     pkgs.k9s
+    pkgs.kalker
     pkgs.kubectl
     pkgs.kubelogin
     pkgs.kubernetes-helm
     pkgs.minikube
+    pkgs.mosh
+    pkgs.netcat-gnu
     pkgs.nix-direnv
+    pkgs.nmap
     pkgs.nodejs
+    pkgs.pv
+    pkgs.pwgen
     pkgs.pyright
     pkgs.python312
     pkgs.ripgrep
@@ -40,6 +47,7 @@
     pkgs.vim
     pkgs.wezterm
     pkgs.wget
+    pkgs.zoom-us
   ];
 
   programs.bat.enable = true;
