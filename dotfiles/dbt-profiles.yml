@@ -96,3 +96,40 @@ data_platform:
     # for now, we need an env with this name because of our devops pipeline
     # so let's just copy it over from dev
     test_key: *dev-platform
+
+b2c:
+  target: local_dev
+  outputs:
+    local_dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+
+      # Keypair config
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_KEYFILE_PATH') }}"
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_KEYFILE_PASSWORD') }}"
+
+      database: B2C_DEV_DWH
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'COMPUTE_WH') }}"
+      role: DEV_TRANSFORMER
+      schema: INTERMEDIATE
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dev_dbt
+
+    dev: &dev-platform
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+
+      # Keypair config
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_KEYFILE_PATH') }}"
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_KEYFILE_PASSWORD') }}"
+
+      database: B2C_DEV_DWH
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'COMPUTE_WH') }}"
+      role: DEV_TRANSFORMER
+      schema: INTERMEDIATE
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dev_dbt
