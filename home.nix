@@ -17,10 +17,12 @@
     pkgs.direnv
     pkgs.docker-buildx
     pkgs.docker-client
+    pkgs.dua
     pkgs.eza
     pkgs.git
     pkgs.httpie
     pkgs.jetbrains.datagrip
+    pkgs.jless
     pkgs.k9s
     pkgs.kalker
     pkgs.kubectl
