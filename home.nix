@@ -130,4 +130,5 @@
   home.file.".gitconfig".source = ./dotfiles/gitconfig;
   home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
   home.file."./.dbt/profiles.yml".source = ./dotfiles/dbt-profiles.yml;
+  home.file."./.colima/_templates/default.yaml".source = ./dotfiles/colima.yaml;
 }
