@@ -77,15 +77,4 @@
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
-
-  homebrew = {
-    enable = true;
-
-    onActivation.cleanup = "uninstall";
-
-    taps = [];
-    casks = [
-      "firefox"
-    ];
-  };
 }
