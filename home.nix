@@ -14,7 +14,6 @@
     pkgs.colima
     pkgs.coreutils
     pkgs.curl
-    pkgs.direnv
     pkgs.docker-buildx
     pkgs.docker-client
     pkgs.dua
@@ -56,6 +55,7 @@
   programs.broot.enable = true;
   programs.tmux.enable = true;
   programs.jq.enable = true;
+  programs.direnv.enable = true;
 
   programs.zsh = {
     enable = true;
