@@ -1,11 +1,11 @@
-name: Update Darwin Flake Lockfile
+name: Update Python Lockfile
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * SAT'
+    - cron: '0 11 * * SAT'
 
 jobs:
-  lockfile-mac:
+  lockfile-python:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,11 +19,14 @@ jobs:
 
       - name: Check Flake Inputs
         uses: DeterminateSystems/flake-checker-action@main
+        with:
+          flake-lock-path: 'utils/python-dev/flake.lock'
 
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "Update flake.lock"
+          path-to-flake-dir: 'utils/python-dev'
+          pr-title: "Update flake.lock for Python Environment"
           pr-labels: |
             dependencies
             automated
