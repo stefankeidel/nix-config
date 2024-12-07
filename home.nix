@@ -28,6 +28,7 @@
     pkgs.kubelogin
     pkgs.kubernetes-helm
     pkgs.minikube
+    pkgs.morph
     pkgs.mosh
     pkgs.netcat-gnu
     pkgs.nix-direnv
