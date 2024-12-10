@@ -53,7 +53,7 @@
           }
         ];
       };
-      "roger.local" = nix-darwin.lib.darwinSystem {
+      "roger" = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
 
         specialArgs = {
