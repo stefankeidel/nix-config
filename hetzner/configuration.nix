@@ -24,7 +24,7 @@
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # in an ideal world, we'd use the below, but not yet
-  networking.useDHCP = false;
+  networking.useDHCP = true;
 
   # networkd config
   # systemd.network.enable = true;
