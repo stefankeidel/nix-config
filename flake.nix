@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,10 +27,25 @@
       nixpkgs,
       bwcli,
       nix-darwin,
+      nix-stable,
       home-manager,
       ...
   }: {
+    # yes, the hostname is "nixos", not too smart
+    nixosConfigurations.nixos = nix-stable.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        # Import the previous configuration.nix we used,
+        # so the old configuration file still takes effect
+        ./hetzner/configuration.nix
+      ];
+    };
+    # Mac Laptop crap
     darwinConfigurations = {
+      # work laptop
       "Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
 
@@ -53,6 +70,7 @@
           }
         ];
       };
+      # old laptop, barely used anymore. build might might be broken
       "roger" = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
 

@@ -56,6 +56,22 @@
         "type": "github"
       }
     },
+    "nix-stable": {
+      "locked": {
+        "lastModified": 1733550349,
+        "narHash": "sha256-NcGumB4Lr6KSDq+nIqXtNA8QwAQKDSZT7N9OTGWbTrs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e2605d0744c2417b09f8bf850dfca42fcf537d34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1733229606,
@@ -77,6 +93,7 @@
         "bwcli": "bwcli",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
+        "nix-stable": "nix-stable",
         "nixpkgs": "nixpkgs"
       }
     }
