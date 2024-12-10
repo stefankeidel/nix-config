@@ -7,7 +7,7 @@
 
     # last known working version of bwcli
     # https://github.com/NixOS/nixpkgs/commit/cfa3e57cd9accf657ed8933295fc8717ad3d2476
-    nixpkgs-bwcli.url = "github:NixOS/nixpkgs/cfa3e57cd9accf657ed8933295fc8717ad3d2476";
+    bwcli.url = "github:NixOS/nixpkgs/cfa3e57cd9accf657ed8933295fc8717ad3d2476";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -20,32 +20,28 @@
     };
   };
 
-  outputs = inputs@{
-    self,
-      nix-darwin,
+  outputs = inputs @ {
+      self,
       nixpkgs,
-      nixpkgs-bwcli,
-      home-manager
+      bwcli,
+      nix-darwin,
+      home-manager,
+      ...
   }: {
     darwinConfigurations = {
       "Stefan-Keidel-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
 
         specialArgs = {
-          pkgs-bwcli = import nixpkgs-bwcli {
-            system = "aarch64-darwin";
+          inherit inputs;
+
+          userConfig = {
+            name = "stefan.keidel@lichtblick.de";
+            home = "/Users/stefan.keidel@lichtblick.de/";
           };
         };
 
         modules = [
-          {
-            _module.args = {
-              userConfig = {
-                name = "stefan.keidel@lichtblick.de";
-                home = "/Users/stefan.keidel@lichtblick.de/";
-              };
-            };
-          }
           ./darwin.nix
           home-manager.darwinModules.home-manager
           {
@@ -61,20 +57,15 @@
         system = "x86_64-darwin";
 
         specialArgs = {
-          pkgs-bwcli = import nixpkgs-bwcli {
-            system = "x86_64-darwin";
+          inherit inputs;
+
+          userConfig = {
+            name = "stefan";
+            home = "/Users/stefan/";
           };
         };
 
         modules = [
-          {
-            _module.args = {
-              userConfig = {
-                name = "stefan";
-                home = "/Users/stefan/";
-              };
-            };
-          }
           ./darwin.nix
           home-manager.darwinModules.home-manager
           {

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bwcli": {
+      "locked": {
+        "lastModified": 1722592191,
+        "narHash": "sha256-Av6l2Pz/pTZX4NShAt7spyapxKSYBk0hVbwopQv30cY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cfa3e57cd9accf657ed8933295fc8717ad3d2476",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cfa3e57cd9accf657ed8933295fc8717ad3d2476",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -56,28 +72,12 @@
         "type": "github"
       }
     },
-    "nixpkgs-bwcli": {
-      "locked": {
-        "lastModified": 1722592191,
-        "narHash": "sha256-Av6l2Pz/pTZX4NShAt7spyapxKSYBk0hVbwopQv30cY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cfa3e57cd9accf657ed8933295fc8717ad3d2476",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cfa3e57cd9accf657ed8933295fc8717ad3d2476",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
+        "bwcli": "bwcli",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-bwcli": "nixpkgs-bwcli"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

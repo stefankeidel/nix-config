@@ -1,4 +1,4 @@
-{ pkgs, pkgs-bwcli, userConfig, ... }: 
+{ self, inputs, pkgs, userConfig, ... }:
 
 {
   services.nix-daemon.enable = true;
@@ -69,9 +69,8 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
-  environment.systemPackages = [
-    pkgs.emacs29
-    pkgs-bwcli.bitwarden-cli
+  environment.systemPackages = with pkgs; [
+    emacs29
   ];
 
   fonts.packages = with pkgs; [

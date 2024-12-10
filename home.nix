@@ -1,6 +1,6 @@
 # home.nix
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # this is internal compatibility configuration 
