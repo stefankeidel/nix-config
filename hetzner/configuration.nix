@@ -77,7 +77,7 @@
     CREATE DATABASE accounting;
     GRANT ALL PRIVILEGES ON DATABASE accounting TO postgres;
   '';
-    
+
     settings.listen_addresses = lib.mkForce "localhost, 100.96.176.26";
   };
 
@@ -108,11 +108,41 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22 41641
+    22 80 443 41641
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  services.nextcloud = {
+    enable = true;
+
+    package = pkgs.nextcloud30;
+    hostName = "cloud.keidel.me";
+    https = true;
+    database.createLocally = true;
+
+    config = {
+      dbtype = "mysql";
+      adminpassFile = "/var/lib/nextcloud/nextcloud-admin-pass-file";
+    };
+
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) cospend;
+    };
+  };
+
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    forceSSL = true;
+    enableACME = true;
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    certs = {
+      ${config.services.nextcloud.hostName}.email = "1188614+stefankeidel@users.noreply.github.com";
+    };
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -139,4 +169,3 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-
