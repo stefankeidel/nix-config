@@ -23,6 +23,24 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  # in an ideal world, we'd use the below, but not yet
+  networking.useDHCP = false;
+
+  # networkd config
+  # systemd.network.enable = true;
+
+  # systemd.network.networks."10-wan" = {
+  #   matchConfig.Name = "enp1s0:"; # either ens3 or enp1s0 depending on system, check 'ip addr'
+  #     networkConfig.DHCP = "ipv4";
+  #     address = [
+  #       # replace this address with the one assigned to your instance
+  #       "2a01:4f8:c013:1160::/64"
+  #     ];
+  #     routes = [
+  #       { Gateway = "fe80::1"; }
+  #     ];
+  # };
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -53,6 +71,8 @@
     tailscale
     vim
     wget
+    htop
+    ripgrep
   ];
 
   # postgres
