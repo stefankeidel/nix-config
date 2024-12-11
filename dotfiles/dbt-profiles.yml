@@ -2,13 +2,13 @@ accounting:
   outputs:
     dev:
       dbname: accounting
-      host: nextcloud-do
+      host: nixos
+      user: postgres
       pass: unicorn
       port: 5432
       schema: analytics
       threads: 4
       type: postgres
-      user: accounting
   target: dev
 
 lb_dwh:
