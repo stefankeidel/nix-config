@@ -38,8 +38,7 @@
       home-manager,
       ...
   }: {
-    # yes, the hostname is "nixos", not too smart
-    nixosConfigurations.nixos = nix-stable.lib.nixosSystem {
+    nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;

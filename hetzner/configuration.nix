@@ -128,6 +128,8 @@
   };
 
   services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "server";
+  services.tailscale.extraSetFlags = ["--advertise-exit-node"];
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
