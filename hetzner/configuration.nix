@@ -98,6 +98,7 @@
     GRANT ALL PRIVILEGES ON DATABASE accounting TO postgres;
   '';
 
+    # listen only locally and on tailscale. No interneterino
     settings.listen_addresses = lib.mkForce "localhost, 100.96.176.26";
   };
 
@@ -152,6 +153,20 @@
     };
   };
 
+  services.nginx.enable = true;
+
+  services.nginx.virtualHosts."keidel.me" = {
+    enableACME = true;
+    forceSSL = true;
+    globalRedirect = "www.keidel.me";
+  };
+
+  services.nginx.virtualHosts."www.keidel.me" = {
+    forceSSL = true;
+    enableACME = true;
+    root = "/var/www/www.keidel.me";
+  };
+
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
     forceSSL = true;
     enableACME = true;
@@ -159,9 +174,7 @@
 
   security.acme = {
     acceptTerms = true;
-    certs = {
-      ${config.services.nextcloud.hostName}.email = "1188614+stefankeidel@users.noreply.github.com";
-    };
+    defaults.email = "1188614+stefankeidel@users.noreply.github.com";
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
