@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nextcloud.nix
       ./website.nix
     ];
 
@@ -130,36 +131,17 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22 80 443 41641
+    22    # ssh
+    80    # http
+    443   # https
+    41641 # tailscale
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  services.nextcloud = {
-    enable = true;
-
-    package = pkgs.nextcloud30;
-    hostName = "cloud.keidel.me";
-    https = true;
-    database.createLocally = true;
-
-    config = {
-      dbtype = "mysql";
-      adminpassFile = "/var/lib/nextcloud/nextcloud-admin-pass-file";
-    };
-
-    extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) cospend;
-    };
-  };
-
+  # some generic webserver config
   services.nginx.enable = true;
-
-  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    forceSSL = true;
-    enableACME = true;
-  };
 
   security.acme = {
     acceptTerms = true;
@@ -189,5 +171,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
