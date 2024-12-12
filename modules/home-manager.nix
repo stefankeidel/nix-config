@@ -22,8 +22,9 @@
       home = {
         # enableNixpkgsReleaseCheck = false;
         # common packages for all systems
-        # override/add to this in "local" modules in hosts/darwin/<yourhost>.nix
-        packages = pkgs.callPackage ./packages.nix {inherit inputs;};
+        
+        # minimal packages, can also be used in headless systems
+        packages = pkgs.callPackage ./min-packages.nix {inherit inputs;};
 
         # this is internal compatibility configuration
         # for home-manager, don't change this!
