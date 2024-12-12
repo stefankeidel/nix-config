@@ -1,16 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nextcloud.nix
-      ./website.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./nextcloud.nix
+    ./website.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -56,14 +58,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stefan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   # it's just me, so :shrug:
   security.sudo.wheelNeedsPassword = false;
 
   # yes, flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -80,25 +82,25 @@
   # postgres
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "accounting" ];
+    ensureDatabases = ["accounting"];
     enableTCPIP = true;
     # port = 5432;
     authentication = pkgs.lib.mkOverride 10 ''
-    #...
-    #type database DBuser origin-address auth-method
-    local all       all     trust
-    # ipv4
-    host  all      all     127.0.0.1/32   trust
-    # ipv6
-    host all       all     ::1/128        trust
-    # tailscale net
-    host  all      all     100.0.0.0/8    trust
-  '';
+      #...
+      #type database DBuser origin-address auth-method
+      local all       all     trust
+      # ipv4
+      host  all      all     127.0.0.1/32   trust
+      # ipv6
+      host all       all     ::1/128        trust
+      # tailscale net
+      host  all      all     100.0.0.0/8    trust
+    '';
     initialScript = pkgs.writeText "backend-initScript" ''
-    CREATE ROLE postgres WITH LOGIN PASSWORD 'unicorn' CREATEDB;
-    CREATE DATABASE accounting;
-    GRANT ALL PRIVILEGES ON DATABASE accounting TO postgres;
-  '';
+      CREATE ROLE postgres WITH LOGIN PASSWORD 'unicorn' CREATEDB;
+      CREATE DATABASE accounting;
+      GRANT ALL PRIVILEGES ON DATABASE accounting TO postgres;
+    '';
 
     # listen only locally and on tailscale. No interneterino
     settings.listen_addresses = lib.mkForce "localhost, 100.96.176.26";
@@ -117,7 +119,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [22];
     settings = {
       PasswordAuthentication = false;
       AllowUsers = ["stefan"];
@@ -133,9 +135,9 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22    # ssh
-    80    # http
-    443   # https
+    22 # ssh
+    80 # http
+    443 # https
     41641 # tailscale
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];

@@ -6,22 +6,26 @@
     poetrypin.url = "github:NixOS/nixpkgs/881e946d8b96b1c52d74e2b69792aa89354feffd";
   };
 
-  outputs = { self, nixpkgs, poetrypin }:
-    let
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      poetpkgs = import poetrypin { system = "aarch64-darwin"; };
-      # A list of shell names and their Python versions
-      pythonVersions = {
-        python39 = pkgs.python39;
-        python310 = pkgs.python310;
-        python311 = pkgs.python311;
-        python312 = pkgs.python312;
-        python313 = pkgs.python313;
-        default = pkgs.python312;
-      };
-      
-      # A function to make a shell with a python version
-      makePythonShell = shellName: pythonPackage: pkgs.mkShell {
+  outputs = {
+    self,
+    nixpkgs,
+    poetrypin,
+  }: let
+    pkgs = import nixpkgs {system = "aarch64-darwin";};
+    poetpkgs = import poetrypin {system = "aarch64-darwin";};
+    # A list of shell names and their Python versions
+    pythonVersions = {
+      python39 = pkgs.python39;
+      python310 = pkgs.python310;
+      python311 = pkgs.python311;
+      python312 = pkgs.python312;
+      python313 = pkgs.python313;
+      default = pkgs.python312;
+    };
+
+    # A function to make a shell with a python version
+    makePythonShell = shellName: pythonPackage:
+      pkgs.mkShell {
         # You could add extra packages you need here too
         packages = [
           pythonPackage
@@ -50,10 +54,9 @@
           poetry install
         '';
       };
-    in
-    {
-      # mapAttrs runs the given function (makePythonShell) against every value
-      # in the attribute set (pythonVersions) and returns a new set
-      devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
-    };
+  in {
+    # mapAttrs runs the given function (makePythonShell) against every value
+    # in the attribute set (pythonVersions) and returns a new set
+    devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
+  };
 }

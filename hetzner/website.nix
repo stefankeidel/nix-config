@@ -1,6 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   services.nginx.virtualHosts."keidel.me" = {
     enableACME = true;
     forceSSL = true;
