@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 with pkgs; [
   pkgs.coreutils
   pkgs.curl

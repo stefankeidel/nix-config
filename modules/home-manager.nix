@@ -22,7 +22,7 @@
       home = {
         # enableNixpkgsReleaseCheck = false;
         # common packages for all systems
-        
+
         # minimal packages, can also be used in headless systems
         packages = pkgs.callPackage ./min-packages.nix {inherit inputs;};
 
