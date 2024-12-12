@@ -7,6 +7,7 @@
   ...
 }: {
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
-    pkgs.plex-media-player
+    pkgs.ffmpeg
+    pkgs.ghostscript
   ];
 }
