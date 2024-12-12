@@ -65,35 +65,30 @@
         };
 
         modules = [
+          ./hosts/darwin/lichtblick.nix
           ./hosts/darwin/default.nix
           home-manager.darwinModules.home-manager
         ];
       };
       # # old laptop, barely used anymore. build might might be broken
-      # "roger" = nix-darwin.lib.darwinSystem {
-      #   system = "x86_64-darwin";
+      "roger" = nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
 
-      #   specialArgs = {
-      #     inherit inputs;
+        specialArgs = {
+          inherit inputs;
 
-      #     userConfig = {
-      #       name = "stefan";
-      #       home = "/Users/stefan/";
-      #     };
-      #   };
+          userConfig = {
+            name = "stefan";
+            home = "/Users/stefan/";
+          };
+        };
 
-      #   modules = [
-      #     ./darwin.nix
-      #     home-manager.darwinModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.verbose = true;
-
-      #       home-manager.users."stefan" = import ./home.nix;
-      #     }
-      #   ];
-      # };
+        modules = [
+          ./hosts/darwin/roger.nix
+          ./hosts/darwin/default.nix
+          home-manager.darwinModules.home-manager
+        ];
+      };
     };
   };
 }

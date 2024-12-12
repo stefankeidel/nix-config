@@ -20,60 +20,13 @@
     }: {
       home = {
         # enableNixpkgsReleaseCheck = false;
-        # packages = pkgs.callPackage ./packages.nix {};
-        # file = lib.mkMerge [
-        #   sharedFiles
-        #   additionalFiles
-        #   { "emacs-launcher.command".source = myEmacsLauncher; }
-        # ];
+        # common packages for all systems
+        # override/add to this in "local" modules in hosts/darwin/<yourhost>.nix
+        packages = pkgs.callPackage ./packages.nix {};
 
         # this is internal compatibility configuration
         # for home-manager, don't change this!
         stateVersion = "23.05";
-
-        packages = with pkgs; [
-          pkgs.alejandra
-          pkgs.azure-cli
-          pkgs.colima
-          pkgs.coreutils
-          pkgs.curl
-          pkgs.docker-buildx
-          pkgs.docker-client
-          pkgs.dua
-          pkgs.eza
-          pkgs.git
-          pkgs.httpie
-          pkgs.jetbrains.datagrip
-          pkgs.jless
-          pkgs.k9s
-          pkgs.kalker
-          pkgs.kubectl
-          pkgs.kubelogin
-          pkgs.kubernetes-helm
-          pkgs.minikube
-          pkgs.morph
-          pkgs.mosh
-          pkgs.netcat-gnu
-          pkgs.nix-direnv
-          pkgs.nmap
-          pkgs.nodejs
-          pkgs.pv
-          pkgs.pwgen
-          pkgs.pyright
-          pkgs.python312
-          pkgs.ripgrep
-          pkgs.signal-desktop
-          pkgs.spaceship-prompt
-          pkgs.speedtest-cli
-          pkgs.spotify
-          pkgs.terraform
-          pkgs.terraform-ls
-          pkgs.tree-sitter
-          pkgs.vim
-          pkgs.wezterm
-          pkgs.wget
-          pkgs.zoom-us
-        ];
 
         sessionVariables = {
           EDITOR = "vim";
@@ -126,14 +79,14 @@
           initExtra = ''
             source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
 
-                  if [[ $(uname -m) == "arm64" ]]; then
-                    eval "$(/opt/homebrew/bin/brew shellenv)"
-                  else
-                    eval "$(/usr/local/bin/brew shellenv)"
-                  fi
+            if [[ $(uname -m) == "arm64" ]]; then
+              eval "$(/opt/homebrew/bin/brew shellenv)"
+            else
+              eval "$(/usr/local/bin/brew shellenv)"
+            fi
 
-                  source ~/.functions
-                  source ~/.extra
+            source ~/.functions
+            source ~/.extra
           '';
 
           shellAliases = {
