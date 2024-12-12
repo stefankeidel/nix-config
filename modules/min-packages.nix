@@ -2,8 +2,6 @@
 with pkgs; [
   pkgs.coreutils
   pkgs.curl
-  pkgs.docker-buildx
-  pkgs.docker-client
   pkgs.dua
   pkgs.eza
   pkgs.git
