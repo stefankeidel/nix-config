@@ -1,6 +1,11 @@
 { self, inputs, pkgs, userConfig, ... }:
 
 {
+  imports = [
+    ../../modules/darwin/home-manager.nix
+#    ../../modules/shared
+  ];
+  
   services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
