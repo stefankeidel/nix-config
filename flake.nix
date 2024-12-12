@@ -43,9 +43,7 @@
         inherit inputs;
       };
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./hetzner/configuration.nix
+        ./hosts/nixie/configuration.nix
       ];
     };
     # Mac Laptop crap
@@ -64,9 +62,10 @@
         };
 
         modules = [
-          ./hosts/darwin/lichtblick.nix
           ./hosts/darwin/default.nix
           home-manager.darwinModules.home-manager
+          # custom settings for this machine
+          ./hosts/darwin/lichtblick.nix
         ];
       };
       # # old laptop, barely used anymore. build might might be broken

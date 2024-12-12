@@ -15,9 +15,7 @@ with pkgs; [
   pkgs.k9s
   pkgs.kalker
   pkgs.kubectl
-  pkgs.kubelogin
   pkgs.kubernetes-helm
-  pkgs.minikube
   pkgs.morph
   pkgs.mosh
   pkgs.netcat-gnu
@@ -29,15 +27,12 @@ with pkgs; [
   pkgs.pyright
   pkgs.python312
   pkgs.ripgrep
-  pkgs.signal-desktop
   pkgs.spaceship-prompt
   pkgs.speedtest-cli
-  pkgs.spotify
   pkgs.terraform
   pkgs.terraform-ls
   pkgs.tree-sitter
   pkgs.vim
-  pkgs.wezterm
   pkgs.wget
   inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
 ]

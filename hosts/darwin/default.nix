@@ -6,8 +6,15 @@
   ...
 }: {
   imports = [
-    ../../modules/darwin/home-manager.nix
+    ../../modules/home-manager.nix
     #    ../../modules/shared
+  ];
+
+  # GUI packages go here for now. Unsure if worth separate module
+  home-manager.users.${userConfig.name}.home.packages = with pkgs; [
+    pkgs.spotify
+    pkgs.signal-desktop
+    pkgs.wezterm
   ];
 
   services.nix-daemon.enable = true;

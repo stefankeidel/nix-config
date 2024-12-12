@@ -52,14 +52,14 @@
           AIRFLOW_PLATFORM = "linux/arm64";
         };
 
-        file.".vimrc".source = ../../dotfiles/vim_config;
-        file.".wezterm.lua".source = ../../dotfiles/weztermconfig.lua;
-        file.".functions".source = ../../dotfiles/functions;
-        file.".hushlogin".source = ../../dotfiles/hushlogin;
-        file.".gitconfig".source = ../../dotfiles/gitconfig;
-        file.".tmux.conf".source = ../../dotfiles/tmux.conf;
-        file."./.dbt/profiles.yml".source = ../../dotfiles/dbt-profiles.yml;
-        file."./.colima/_templates/default.yaml".source = ../../dotfiles/colima.yaml;
+        file.".vimrc".source = ../dotfiles/vim_config;
+        file.".wezterm.lua".source = ../dotfiles/weztermconfig.lua;
+        file.".functions".source = ../dotfiles/functions;
+        file.".hushlogin".source = ../dotfiles/hushlogin;
+        file.".gitconfig".source = ../dotfiles/gitconfig;
+        file.".tmux.conf".source = ../dotfiles/tmux.conf;
+        file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
+        file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
       };
 
       programs = {
