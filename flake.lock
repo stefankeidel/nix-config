@@ -94,7 +94,24 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-stable": "nix-stable",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "stefan-website": "stefan-website"
+      }
+    },
+    "stefan-website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733986545,
+        "narHash": "sha256-setatQGp0y8np7JQxxduDjao42RQNG824JYTx9K9xN8=",
+        "owner": "stefankeidel",
+        "repo": "website",
+        "rev": "72cb5d8f62092aaa3967af88695d33fa888cb8ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefankeidel",
+        "repo": "website",
+        "type": "github"
       }
     }
   },

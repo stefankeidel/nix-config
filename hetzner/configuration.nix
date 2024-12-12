@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./website.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -154,18 +155,6 @@
   };
 
   services.nginx.enable = true;
-
-  services.nginx.virtualHosts."keidel.me" = {
-    enableACME = true;
-    forceSSL = true;
-    globalRedirect = "www.keidel.me";
-  };
-
-  services.nginx.virtualHosts."www.keidel.me" = {
-    forceSSL = true;
-    enableACME = true;
-    root = "/var/www/www.keidel.me";
-  };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
     forceSSL = true;

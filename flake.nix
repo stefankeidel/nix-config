@@ -20,6 +20,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stefan-website = {
+      type = "github";
+      owner = "stefankeidel";
+      repo = "website";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
