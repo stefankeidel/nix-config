@@ -80,7 +80,6 @@
 
   environment.systemPackages = with pkgs; [
     emacs29
-    inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
   ];
 
   fonts.packages = with pkgs; [

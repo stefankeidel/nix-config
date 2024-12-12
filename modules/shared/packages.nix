@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 with pkgs; [
   pkgs.alejandra
   pkgs.colima
@@ -39,4 +39,5 @@ with pkgs; [
   pkgs.vim
   pkgs.wezterm
   pkgs.wget
+  inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
 ]
