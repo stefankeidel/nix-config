@@ -1,7 +1,6 @@
 {
   description = "Stefans Laptop config";
 
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -30,13 +29,13 @@
   };
 
   outputs = inputs @ {
-      self,
-      nixpkgs,
-      bwcli,
-      nix-darwin,
-      nix-stable,
-      home-manager,
-      ...
+    self,
+    nixpkgs,
+    bwcli,
+    nix-darwin,
+    nix-stable,
+    home-manager,
+    ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
       system = "x86_64-linux";
@@ -65,18 +64,12 @@
         };
 
         modules = [
-          ./darwin.nix
+          ./hosts/darwin/lichtblick.nix
+          ./hosts/darwin/default.nix
           home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-
-            home-manager.users."stefan.keidel@lichtblick.de" = import ./home.nix;
-          }
         ];
       };
-      # old laptop, barely used anymore. build might might be broken
+      # # old laptop, barely used anymore. build might might be broken
       "roger" = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
 
@@ -90,15 +83,9 @@
         };
 
         modules = [
-          ./darwin.nix
+          ./hosts/darwin/roger.nix
+          ./hosts/darwin/default.nix
           home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-
-            home-manager.users."stefan" = import ./home.nix;
-          }
         ];
       };
     };

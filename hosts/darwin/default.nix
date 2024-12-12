@@ -1,6 +1,15 @@
-{ self, inputs, pkgs, userConfig, ... }:
-
 {
+  self,
+  inputs,
+  pkgs,
+  userConfig,
+  ...
+}: {
+  imports = [
+    ../../modules/darwin/home-manager.nix
+    #    ../../modules/shared
+  ];
+
   services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
@@ -62,8 +71,8 @@
 
   # Declare the user that will be running `nix-darwin`.
   users.users."${userConfig.name}" = {
-      name = "${userConfig.name}";
-      home = "${userConfig.home}";
+    name = "${userConfig.name}";
+    home = "${userConfig.home}";
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
