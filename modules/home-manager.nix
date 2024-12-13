@@ -31,8 +31,9 @@
         stateVersion = "23.05";
 
         sessionVariables = {
-          EDITOR = "vim";
-          VISUAL = "vim";
+          ALTERNATE_EDITOR = ""; # kind of an Emacs life hack
+          EDITOR = "emacsclient -t";
+          VISUAL = "emacsclient -c -a emacs";
           LANG = "en_US.UTF-8";
           LC_ALL = "en_US.UTF-8";
           MANPAGER = "less -X";

@@ -4,8 +4,10 @@
   ...
 }:
 with pkgs; [
-  pkgs.spotify
-  pkgs.signal-desktop
-  pkgs.wezterm
+  pkgs.element-desktop
   pkgs.jetbrains.datagrip
+  pkgs.raycast
+  pkgs.signal-desktop
+  pkgs.spotify
+  pkgs.wezterm
 ]
