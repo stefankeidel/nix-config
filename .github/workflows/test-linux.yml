@@ -22,4 +22,4 @@ jobs:
         uses: DeterminateSystems/flake-checker-action@main
 
       - name: Build Nix Flake
-        run: nixos-rebuild build --flake .#nixie
+        run: nix build --flake .#nixosConfigurations.nixie
