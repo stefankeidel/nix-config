@@ -26,6 +26,9 @@
   nixpkgs.config.allowUnfree = true;
 
   #system.configurationRevision = self.rev or self.dirtyRev or null;
+  # cachix
+  nix.settings.extra-substituters = "https://cache.nixos.org https://nix-community.cachix.org https://sylvorg.cachix.org";
+  nix.settings.extra-trusted-public-keys = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= sylvorg.cachix.org-1:xd1jb7cDkzX+D+Wqt6TemzkJH9u9esXEFu1yaR9p8H8=";
 
   # trackpad stuff
   system.defaults.trackpad.TrackpadRightClick = true;
