@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "emacsfix": {
+      "locked": {
+        "lastModified": 1733332588,
+        "narHash": "sha256-8DrOw++NmOlGpRDOMzfi546UmKGs0dk7oQob0H/n+78=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b904748936817440244a757aadb91a06200b2320",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b904748936817440244a757aadb91a06200b2320",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -107,6 +123,7 @@
     "root": {
       "inputs": {
         "bwcli": "bwcli",
+        "emacsfix": "emacsfix",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-stable": "nix-stable",
