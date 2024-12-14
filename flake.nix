@@ -8,6 +8,12 @@
     # https://github.com/NixOS/nixpkgs/commit/cfa3e57cd9accf657ed8933295fc8717ad3d2476
     bwcli.url = "github:NixOS/nixpkgs/cfa3e57cd9accf657ed8933295fc8717ad3d2476";
 
+    # emacsfix for https://github.com/NixOS/nixpkgs/pull/361752
+    # should be in unstable soon enough
+    # pulling in the commit from before it broke, because the fixing commit
+    # in staging causes a HUGE recompile
+    emacsfix.url = "github:NixOS/nixpkgs/3400d5e942d29a7382b40f43632c631df9de7d3d";
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -20,6 +20,10 @@
 
   services.nix-daemon.enable = true;
 
+  # enable emacs daemon
+  services.emacs.enable = true;
+  services.emacs.package = inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29;
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -91,10 +95,27 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    emacs29
+    inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
+
+  # no workerino
+  # launchd = {
+  #   user = {
+  #     agents = {
+  #       emacsclient = {
+  #         command = "/run/current-system/sw/bin/emacsclient -c -n";
+  #         serviceConfig = {
+  #           KeepAlive = false;
+  #           RunAtLoad = true;
+  #           StandardOutPath = "/dev/null";
+  #           StandardErrorPath = "/dev/null";
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 }
