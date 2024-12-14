@@ -42,8 +42,8 @@ in {
         stateVersion = "23.05";
 
         sessionVariables = {
-          EDITOR = "vim";
-          VISUAL = "vim";
+          EDITOR = "emacsclient -t";
+          VISUAL = "emacsclient -t";
           LANG = "en_US.UTF-8";
           LC_ALL = "en_US.UTF-8";
           MANPAGER = "less -X";
