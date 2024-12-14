@@ -10,7 +10,9 @@
 
     # emacsfix for https://github.com/NixOS/nixpkgs/pull/361752
     # should be in unstable soon enough
-    emacsfix.url = "github:NixOS/nixpkgs/b904748936817440244a757aadb91a06200b2320";
+    # pulling in the commit from before it broke, because the fixing commit
+    # in staging causes a HUGE recompile
+    emacsfix.url = "github:NixOS/nixpkgs/3400d5e942d29a7382b40f43632c631df9de7d3d";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";

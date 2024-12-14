@@ -10,8 +10,8 @@
 
 let
   myEmacsLauncher = pkgs.writeScript "emacs-launcher.command" ''
-    #!/bin/sh
-    emacsclient -c -n &
+    #!/bin/zsh
+    emacsclient -c -n 1>/dev/null 2>&1 &
   '';
 in {
   imports = [
@@ -132,41 +132,23 @@ in {
     # Fully declarative dock using the latest from Nix Store
   local.dock.enable = true;
   local.dock.entries = [
-    { path = "${pkgs.wezterm}/Applications/WezTerm.app/"; }
+    { path = "${userConfig.home}/Applications/Home Manager Apps/WezTerm.app/"; }
     { path = "/Applications/Firefox.app/"; }
     { path = "/System/Applications/Calendar.app/"; }
-    { path = "/Applications/Microsoft\ Outlook.app/"; }
-    { path = "/Applications/Microsoft\ Teams.app/"; }
-    { path = "${pkgs.element-desktop}/Applications/Element.app/"; }
+    { path = "/Applications/Microsoft Outlook.app/"; }
+    { path = "/Applications/Microsoft Teams.app/"; }
+    { path = "${inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29}/bin/emacs-29.4"; }
+    { path = "${userConfig.home}/Applications/Home Manager Apps/Element.app/"; }
     { path = "/System/Applications/Mail.app/"; }
-    { path = "${pkgs.jetbrains.datagrip}/Applications/DataGrip.app/"; }
+    { path = "${userConfig.home}/Applications/Home Manager Apps/DataGrip.app/"; }
     { path = "/System/Applications/Notes.app/"; }
-    { path = "${pkgs.signal-desktop}/Applications/Signal.app/"; }
-    { path = "${pkgs.spotify}/Applications/Spotify.app/"; }
-    { path = "/System/Applications/System\ Settings.app/"; }
-
-    # {
-    #   path = toString myEmacsLauncher;
-    #   section = "others";
-    # }
-    # { path = "/System/Applications/News.app/"; }
-    # { path = "/System/Applications/Photos.app/"; }
-    # { path = "/System/Applications/Photo Booth.app/"; }
-    # { path = "/System/Applications/TV.app/"; }
-    # { path = "/System/Applications/Home.app/"; }
-    # # {
-    # #   path = toString myEmacsLauncher;
-    # #   section = "others";
-    # # }
-    # {
-    #   path = "${config.users.users.${user}.home}/.local/share/";
-    #   section = "others";
-    #   options = "--sort name --view grid --display folder";
-    # }
-    # {
-    #   path = "${config.users.users.${user}.home}/.local/share/downloads";
-    #   section = "others";
-    #   options = "--sort name --view grid --display stack";
-    # }
+    { path = "${userConfig.home}/Applications/Home Manager Apps/Signal.app/"; }
+    { path = "${userConfig.home}/Applications/Home Manager Apps/Spotify.app/"; }
+    { path = "/System/Applications/System Settings.app/"; }
+    { path = "/System/Applications/Photos.app/"; }
+    {
+      path = toString myEmacsLauncher;
+      section = "others";
+    }
   ];
 }

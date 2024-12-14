@@ -101,4 +101,21 @@
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
+
+  # no workerino
+  # launchd = {
+  #   user = {
+  #     agents = {
+  #       emacsclient = {
+  #         command = "/run/current-system/sw/bin/emacsclient -c -n";
+  #         serviceConfig = {
+  #           KeepAlive = false;
+  #           RunAtLoad = true;
+  #           StandardOutPath = "/dev/null";
+  #           StandardErrorPath = "/dev/null";
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 }
