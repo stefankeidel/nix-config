@@ -110,7 +110,7 @@
           # custom settings for this machine
           ./hosts/darwin/lichtblick.nix
         ];
-      };     
+      };
     };
     devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
   };
