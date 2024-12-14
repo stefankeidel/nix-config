@@ -2,7 +2,7 @@ accounting:
   outputs:
     dev:
       dbname: accounting
-      host: nixos
+      host: nixie
       user: postgres
       pass: unicorn
       port: 5432
