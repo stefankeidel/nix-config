@@ -88,7 +88,6 @@
     enable = true;
     ensureDatabases = ["accounting"];
     enableTCPIP = true;
-    # port = 5432;
     authentication = pkgs.lib.mkOverride 10 ''
       #...
       #type database DBuser origin-address auth-method
@@ -107,7 +106,8 @@
     '';
 
     # listen only locally and on tailscale. No interneterino
-    settings.listen_addresses = lib.mkForce "localhost, 100.96.176.26";
+    settings.port = 5432;
+    settings.listen_addresses = lib.mkForce "100.96.176.26";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -142,6 +142,7 @@
     22 # ssh
     80 # http
     443 # https
+    5432 # postgres
     41641 # tailscale
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
