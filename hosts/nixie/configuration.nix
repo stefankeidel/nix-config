@@ -157,6 +157,13 @@
     defaults.email = "1188614+stefankeidel@users.noreply.github.com";
   };
 
+  # metabase
+  services.metabase = {
+    enable = true;
+    openFirewall = true;
+    listen.ip = "100.96.176.26";
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
