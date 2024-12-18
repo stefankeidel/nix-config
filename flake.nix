@@ -128,7 +128,7 @@
           ./hosts/darwin/default.nix
           home-manager.darwinModules.home-manager
           # custom settings for this machine
-          # ./hosts/darwin/lichtblick.nix
+          ./hosts/darwin/mini.nix
         ];
       };
     };
