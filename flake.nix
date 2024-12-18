@@ -111,6 +111,26 @@
           ./hosts/darwin/lichtblick.nix
         ];
       };
+      # work laptop
+      "mini" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+
+        specialArgs = {
+          inherit inputs;
+
+          userConfig = {
+            name = "stefan";
+            home = "/Users/stefan/";
+          };
+        };
+
+        modules = [
+          ./hosts/darwin/default.nix
+          home-manager.darwinModules.home-manager
+          # custom settings for this machine
+          # ./hosts/darwin/lichtblick.nix
+        ];
+      };
     };
     devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
   };
