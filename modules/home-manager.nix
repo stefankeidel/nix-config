@@ -91,12 +91,7 @@ in {
           initExtra = ''
             source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
 
-            if [[ $(uname -m) == "arm64" ]]; then
-              eval "$(/opt/homebrew/bin/brew shellenv)"
-            else
-              eval "$(/usr/local/bin/brew shellenv)"
-            fi
-
+            eval "$(/opt/homebrew/bin/brew shellenv)"
             source ~/.functions
             source ~/.extra
           '';
@@ -111,6 +106,14 @@ in {
 
           history = {
             size = 1000000;
+            save = 1000000;
+            append = true;
+            extended = true;
+            ignoreSpace = true;
+            ignoreDups = true;
+            ignoreAllDups = true;
+            expireDuplicatesFirst = true;
+
           };
 
           oh-my-zsh = {
