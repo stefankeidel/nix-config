@@ -11,4 +11,5 @@ with pkgs; [
   pkgs.spotify
   pkgs.wezterm
   pkgs.dockutil
+  pkgs.zoom-us
 ]

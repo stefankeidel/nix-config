@@ -131,6 +131,7 @@ in {
   };
 
   # Fully declarative dock using the latest from Nix Store
+  # TODO: Dock for Mac Mini looks different eh
   local.dock.enable = true;
   local.dock.entries = [
     {path = "${userConfig.home}/Applications/Home Manager Apps/WezTerm.app/";}
