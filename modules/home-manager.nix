@@ -71,6 +71,7 @@ in {
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file."emacs-launcher.command".source = myEmacsLauncher;
+        file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
       };
 
       programs = {
@@ -131,6 +132,7 @@ in {
   };
 
   # Fully declarative dock using the latest from Nix Store
+  # TODO: Dock for Mac Mini looks different eh
   local.dock.enable = true;
   local.dock.entries = [
     {path = "${userConfig.home}/Applications/Home Manager Apps/WezTerm.app/";}

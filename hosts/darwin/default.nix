@@ -101,15 +101,4 @@
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
-
-  homebrew = {
-    enable = true;
-
-    brews = [
-      "cyphernetes"
-    ];
-
-    #onActivation.cleanup = "uninstall";
-    onActivation.autoUpdate = false;
-  };
 }
