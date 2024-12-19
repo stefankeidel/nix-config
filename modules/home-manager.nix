@@ -71,6 +71,7 @@ in {
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file."emacs-launcher.command".source = myEmacsLauncher;
+        file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
       };
 
       programs = {
