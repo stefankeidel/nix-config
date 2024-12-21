@@ -42,6 +42,9 @@
   system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;
   system.defaults.NSGlobalDomain."com.apple.trackpad.forceClick" = true;
 
+  # mouse accelleration
+  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+
   # key repeat
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
