@@ -18,6 +18,7 @@ with pkgs; [
   pkgs.spaceship-prompt
   pkgs.speedtest-cli
   pkgs.tree-sitter
+  pkgs.unixtools.watch
   pkgs.vim
   pkgs.wget
 ]
