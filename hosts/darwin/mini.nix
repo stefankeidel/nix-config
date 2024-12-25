@@ -38,6 +38,7 @@
     {path = "${userConfig.home}/Applications/Home Manager Apps/Signal.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Spotify.app/";}
     {path = "/Applications/Steam.app"; }
+    {path = "${userConfig.home}/Applications/Home Manager Apps/Discord.app/";}
     {path = "/System/Applications/System Settings.app/";}
     {path = "/System/Applications/Photos.app/";}
     {
