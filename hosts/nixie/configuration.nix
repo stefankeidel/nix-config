@@ -81,6 +81,7 @@
     wget
     htop
     ripgrep
+    speedtest-go
   ];
 
   # postgres
