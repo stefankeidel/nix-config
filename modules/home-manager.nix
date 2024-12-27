@@ -110,7 +110,6 @@ in {
             ignoreDups = true;
             ignoreAllDups = true;
             expireDuplicatesFirst = true;
-
           };
 
           oh-my-zsh = {

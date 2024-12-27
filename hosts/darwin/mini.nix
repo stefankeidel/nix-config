@@ -11,12 +11,11 @@
     #!/bin/zsh
     emacsclient -c -n 1>/dev/null 2>&1 &
   '';
- in {
+in {
   imports = [
     ../../modules/dock
   ];
 
-  
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.zoom-us
     pkgs.discord
@@ -37,7 +36,7 @@
     {path = "/System/Applications/Notes.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Signal.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Spotify.app/";}
-    {path = "/Applications/Steam.app"; }
+    {path = "/Applications/Steam.app";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Discord.app/";}
     {path = "/System/Applications/System Settings.app/";}
     {path = "/System/Applications/Photos.app/";}

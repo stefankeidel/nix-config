@@ -15,7 +15,7 @@ in {
   imports = [
     ../../modules/dock
   ];
-  
+
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.azure-cli
     pkgs.kubelogin
@@ -31,7 +31,6 @@ in {
     #onActivation.cleanup = "uninstall";
     onActivation.autoUpdate = false;
   };
-
 
   # Fully declarative dock using the latest from Nix Store
   local.dock.enable = true;
