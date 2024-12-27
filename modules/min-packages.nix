@@ -16,7 +16,7 @@ with pkgs; [
   pkgs.pv
   pkgs.ripgrep
   pkgs.spaceship-prompt
-  pkgs.speedtest-rs
+  pkgs.speedtest-go
   pkgs.tree-sitter
   pkgs.unixtools.watch
   pkgs.vim
