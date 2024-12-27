@@ -12,6 +12,10 @@
     emacsclient -c -n 1>/dev/null 2>&1 &
   '';
 in {
+  imports = [
+    ../../modules/dock
+  ];
+  
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.azure-cli
     pkgs.kubelogin
