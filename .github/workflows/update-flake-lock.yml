@@ -2,7 +2,7 @@ name: Update Darwin Flake Lockfile
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * SAT'
+    - cron: '0 8 * * SAT'
 
 jobs:
   lockfile-mac:
@@ -23,7 +23,7 @@ jobs:
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "Update Darwin flake.lock"
+          pr-title: "Update flake.lock"
           pr-labels: |
             dependencies
             automated
