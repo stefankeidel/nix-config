@@ -29,7 +29,7 @@ in {
     {path = "${userConfig.home}/Applications/Home Manager Apps/WezTerm.app/";}
     {path = "/Applications/Firefox.app/";}
     {path = "/System/Applications/Calendar.app/";}
-    {path = "${inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29}/bin/emacs-29.4";}
+    {path = "${pkgs.emacs29}/bin/emacs-29.4";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Element.app/";}
     {path = "/System/Applications/Mail.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/DataGrip.app/";}

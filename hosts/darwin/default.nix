@@ -22,7 +22,7 @@
 
   # enable emacs daemon
   services.emacs.enable = true;
-  services.emacs.package = inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29;
+  services.emacs.package = pkgs.emacs29;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
@@ -98,7 +98,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29
+    pkgs.emacs29
   ];
 
   fonts.packages = with pkgs; [

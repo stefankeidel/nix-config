@@ -40,7 +40,7 @@ in {
     {path = "/System/Applications/Calendar.app/";}
     {path = "/Applications/Microsoft Outlook.app/";}
     {path = "/Applications/Microsoft Teams.app/";}
-    {path = "${inputs.emacsfix.legacyPackages."${pkgs.system}".emacs29}/bin/emacs-29.4";}
+    {path = "${pkgs.emacs29}/bin/emacs-29.4";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/Element.app/";}
     {path = "/System/Applications/Mail.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/DataGrip.app/";}
