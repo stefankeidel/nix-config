@@ -41,7 +41,6 @@ in {
     {path = "/Applications/Microsoft Outlook.app/";}
     {path = "/Applications/Microsoft Teams.app/";}
     {path = "${pkgs.emacs29}/bin/emacs-29.4";}
-    {path = "${userConfig.home}/Applications/Home Manager Apps/Element.app/";}
     {path = "/System/Applications/Mail.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/DataGrip.app/";}
     {path = "/System/Applications/Notes.app/";}

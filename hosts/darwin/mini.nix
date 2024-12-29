@@ -30,7 +30,6 @@ in {
     {path = "/Applications/Firefox.app/";}
     {path = "/System/Applications/Calendar.app/";}
     {path = "${pkgs.emacs29}/bin/emacs-29.4";}
-    {path = "${userConfig.home}/Applications/Home Manager Apps/Element.app/";}
     {path = "/System/Applications/Mail.app/";}
     {path = "${userConfig.home}/Applications/Home Manager Apps/DataGrip.app/";}
     {path = "/System/Applications/Notes.app/";}

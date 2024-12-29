@@ -4,7 +4,6 @@
   ...
 }:
 with pkgs; [
-  pkgs.element-desktop
   pkgs.jetbrains.datagrip
   pkgs.raycast
   pkgs.signal-desktop
