@@ -14,7 +14,10 @@ with pkgs; [
   pkgs.nix-direnv
   pkgs.nmap
   pkgs.pv
+  pkgs.rclone
+  pkgs.restic
   pkgs.ripgrep
+  pkgs.rsync
   pkgs.spaceship-prompt
   pkgs.speedtest-go
   pkgs.tree-sitter
