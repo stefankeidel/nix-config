@@ -21,16 +21,16 @@ in {
     pkgs.kubelogin
   ];
 
-  homebrew = {
-    enable = true;
+  # homebrew = {
+  #   enable = true;
 
-    brews = [
-      "cyphernetes"
-    ];
+  #   brews = [
+  #     "cyphernetes"
+  #   ];
 
-    #onActivation.cleanup = "uninstall";
-    onActivation.autoUpdate = false;
-  };
+  #   #onActivation.cleanup = "uninstall";
+  #   onActivation.autoUpdate = false;
+  # };
 
   # Fully declarative dock using the latest from Nix Store
   local.dock.enable = true;
