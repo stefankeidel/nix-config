@@ -24,7 +24,7 @@ in {
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
-      restic --repo rclone:sb:mini-bak backup ~/code ~/Documents ~/Desktop ~/Nextcloud --skip-if-unchanged
+      restic --repo rclone:sb:mini-bak backup ~/code ~/Documents ~/Desktop ~/Nextcloud /Volumes/wd/Photos\ Library.photoslibrary/ --skip-if-unchanged
       restic --repo rclone:sb:mini-bak forget --keep-daily 7 --keep-weekly 4 --keep-monthly 12 --keep-yearly 1 --prune
     '')
   ];
