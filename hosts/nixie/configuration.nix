@@ -78,7 +78,10 @@
     git
     htop
     mosh
+    rclone
+    restic
     ripgrep
+    rsync
     speedtest-go
     tailscale
     vim
