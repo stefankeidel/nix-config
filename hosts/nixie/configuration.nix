@@ -74,14 +74,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    fuse
     git
+    htop
     mosh
+    ripgrep
+    speedtest-go
     tailscale
     vim
     wget
-    htop
-    ripgrep
-    speedtest-go
   ];
 
   # postgres
@@ -166,21 +167,19 @@
   # };
 
   # mount storage box
-  fileSystems."/mnt/storagebox" = {
-    device = "u440580@u440580.your-storagebox.de:/nixie";
-    fsType = "fuse.sshfs";
-    options = [
-      "Identityfile=/var/bak/id_ed25519"
-      "x-systemd.automount" # mount the filesystem automatically on first access
-      "allow_other" # don't restrict access to only the user which `mount`s it (because that's probably systemd who mounts it, not you)
-      "user" # allow manual `mount`ing, as ordinary user.
-      "_netdev"
-    ];
-  };
-
-  boot.supportedFilesystems."fuse.sshfs" = true;
-
-  programs.fuse.userAllowOther = true;
+  # fileSystems."/mnt/storagebox" = {
+  #   device = "u440580@u440580.your-storagebox.de:/nixie";
+  #   fsType = "fuse.sshfs";
+  #   options = [
+  #     "Identityfile=/var/bak/id_ed25519"
+  #     "x-systemd.automount" # mount the filesystem automatically on first access
+  #     "allow_other" # don't restrict access to only the user which `mount`s it (because that's probably systemd who mounts it, not you)
+  #     "user" # allow manual `mount`ing, as ordinary user.
+  #     "_netdev"
+  #   ];
+  # };
+  # boot.supportedFilesystems."fuse.sshfs" = true;
+  # programs.fuse.userAllowOther = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
