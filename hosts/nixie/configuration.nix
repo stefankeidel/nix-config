@@ -15,6 +15,18 @@
     ./website.nix
   ];
 
+  # secrets
+  age.secrets = {
+    rclone = {
+      file = ../../secrets/rclone.conf.age;
+      path = "/home/stefan/.config/rclone/rclone.conf";
+      owner = "stefan";
+      group = "users";
+      mode = "600";
+    };
+  };
+
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
