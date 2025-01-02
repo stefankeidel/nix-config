@@ -33,6 +33,7 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.home-manager.follows = "home-manager";
   };
 
   outputs = inputs @ {
@@ -104,12 +105,13 @@
 
         modules = [
           ./hosts/darwin/default.nix
+          agenix.nixosModules.default
           home-manager.darwinModules.home-manager
           # custom settings for this machine
           ./hosts/darwin/lichtblick.nix
         ];
       };
-      # work laptop
+      # Mac mini at home
       "mini" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
 
@@ -124,6 +126,7 @@
 
         modules = [
           ./hosts/darwin/default.nix
+          agenix.nixosModules.default
           home-manager.darwinModules.home-manager
           # custom settings for this machine
           ./hosts/darwin/mini.nix

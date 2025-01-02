@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  config,
   pkgs,
   lib,
   userConfig,
@@ -10,6 +11,17 @@
     ../../modules/home-manager.nix
     #    ../../modules/shared
   ];
+
+  # secrets
+  age.secrets = {
+    rclone = {
+      file = ../../secrets/rclone.conf.age;
+      path = userConfig.home + "/.config/rclone/rclone.conf";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
+  };
 
   # packages to install on Darwin desktop systems
   # headless (default) packages get pulled in by the home manager module
