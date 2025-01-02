@@ -13,15 +13,20 @@
     ./hardware-configuration.nix
     ./nextcloud.nix
     ./website.nix
+    ./timers.nix
   ];
 
   # secrets
   age.secrets = {
     rclone = {
       file = ../../secrets/rclone.conf.age;
-      path = "/home/stefan/.config/rclone/rclone.conf";
-      owner = "stefan";
-      group = "users";
+      path = "/var/lib/nextcloud/.config/rclone/rclone.conf";
+      owner = "nextcloud";
+      mode = "600";
+    };
+    restic = {
+      file = ../../secrets/restic.age;
+      owner = "nextcloud";
       mode = "600";
     };
   };
@@ -98,6 +103,7 @@
     speedtest-go
     tailscale
     vim
+    vnstat
     wget
     inputs.agenix.packages.${system}.default
   ];
