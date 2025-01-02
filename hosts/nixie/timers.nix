@@ -29,6 +29,8 @@
 
     /run/current-system/sw/bin/nextcloud-occ maintenance:mode --off
 
+    /run/current-system/sw/bin/pg_dump -U postgres -d accounting -f /var/lib/nextcloud/accounting.sql
+
     /run/current-system/sw/bin/restic --password-file /run/agenix/restic --repo /var/bak/restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 3 --prune
 
     /run/current-system/sw/bin/rclone -v sync /var/bak/restic/ sb:nixie-bak/

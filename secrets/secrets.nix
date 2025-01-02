@@ -4,7 +4,8 @@ let
 
   lichtblick-mac = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE8aITOuJ7Z9EzI3KV1Opcy5fJldlCQ+5dzHx1QrLj5c";
   nixie = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5v6RSePxjUpyDxV6LpU63AcI7YHSjP5jVM+DMed+/7";
-  systems = [ lichtblick-mac nixie ];
+  mini = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEpbyIeJsFejzHM4/r1QDYKjFg52bh/J/HZwE/wWsyCZ";
+  systems = [ lichtblick-mac nixie mini ];
 in
 {
   "rclone.conf.age".publicKeys = users ++ systems;
