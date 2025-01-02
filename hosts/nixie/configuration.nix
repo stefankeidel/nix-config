@@ -3,6 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -86,6 +87,7 @@
     tailscale
     vim
     wget
+    inputs.agenix.packages.${system}.default
   ];
 
   # postgres

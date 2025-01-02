@@ -99,6 +99,7 @@
 
   environment.systemPackages = with pkgs; [
     pkgs.emacs29
+    inputs.agenix.packages.${system}.default
   ];
 
   fonts.packages = with pkgs; [

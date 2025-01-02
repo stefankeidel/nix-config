@@ -30,6 +30,9 @@
     # for pinning poetry to 1.6.1
     # https://github.com/NixOS/nixpkgs/commit/881e946d8b96b1c52d74e2b69792aa89354feffd
     poetrypin.url = "github:NixOS/nixpkgs/881e946d8b96b1c52d74e2b69792aa89354feffd";
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -39,6 +42,7 @@
     nix-darwin,
     nix-stable,
     home-manager,
+    agenix,
     ...
   }: let
     pkgs-unstable = inputs.nixpkgs.legacyPackages.aarch64-darwin;
