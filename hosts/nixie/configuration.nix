@@ -167,7 +167,6 @@
   networking.firewall.allowedTCPPorts = [
     80 # http
     443 # https
-    5432 # postgres
     41641 # tailscale
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
