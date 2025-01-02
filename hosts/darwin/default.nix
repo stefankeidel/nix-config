@@ -21,6 +21,13 @@
       group = "staff";
       mode = "600";
     };
+    restic = {
+      file = ../../secrets/restic.age;
+      path = userConfig.home + "/.config/restic-pw";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
   };
 
   # packages to install on Darwin desktop systems

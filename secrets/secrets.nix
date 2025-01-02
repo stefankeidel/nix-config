@@ -8,4 +8,5 @@ let
 in
 {
   "rclone.conf.age".publicKeys = users ++ systems;
+  "restic.age".publicKeys = users ++ systems;
 }
