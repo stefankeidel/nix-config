@@ -149,6 +149,7 @@
   services.openssh = {
     enable = true;
     ports = [22];
+    openFirewall = false; # only via VPN/Wireguard/Tailscale
     settings = {
       PasswordAuthentication = false;
       AllowUsers = ["stefan"];
@@ -164,7 +165,6 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22 # ssh
     80 # http
     443 # https
     5432 # postgres
