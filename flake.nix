@@ -34,6 +34,13 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.home-manager.follows = "home-manager";
+
+    kirkbot = {
+      type = "github";
+      owner = "stefankeidel";
+      repo = "kirkbot";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -87,6 +94,14 @@
       modules = [
         agenix.nixosModules.default
         ./hosts/nixie/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.stefan = import ./hosts/nixie/home.nix;
+
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
       ];
     };
     # Mac Laptop crap
