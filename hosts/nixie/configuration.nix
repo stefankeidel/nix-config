@@ -111,6 +111,8 @@
     vim
     vnstat
     wget
+    poetry
+    python312
     inputs.agenix.packages.${system}.default
   ];
 

@@ -34,13 +34,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.home-manager.follows = "home-manager";
-
-    kirkbot = {
-      type = "github";
-      owner = "stefankeidel";
-      repo = "kirkbot";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {

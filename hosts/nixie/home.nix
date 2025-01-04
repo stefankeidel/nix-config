@@ -17,8 +17,6 @@
   home.stateVersion = "24.11";
   home.enableNixpkgsReleaseCheck = false;
 
-  home.file."kirkbot".source = inputs.kirkbot;
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

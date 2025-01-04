@@ -13,7 +13,7 @@
     serviceConfig = {
       Type = "simple";
       User = "stefan";
-      ExecStart = "${pkgs.coreutils}/bin/sleep infinity"; # Replace with your actual command
+      ExecStart = "/run/current-system/sw/bin/bash /home/stefan/kirkbot/start.sh";
       Restart = "always";
     };
   };
