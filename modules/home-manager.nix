@@ -91,6 +91,7 @@ in {
             eval "$(/opt/homebrew/bin/brew shellenv)"
             source ~/.functions
             source ~/.extra
+            source ~/.config/discord_token
           '';
 
           shellAliases = {

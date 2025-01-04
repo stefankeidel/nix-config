@@ -28,6 +28,13 @@
       group = "staff";
       mode = "600";
     };
+    discord = {
+      file = ../../secrets/discord_bot_token.age;
+      path = userConfig.home + "/.config/discord_token";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
   };
 
   # packages to install on Darwin desktop systems

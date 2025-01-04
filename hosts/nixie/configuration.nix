@@ -13,7 +13,8 @@
     ./hardware-configuration.nix
     ./nextcloud.nix
     ./website.nix
-    ./timers.nix
+    ./backup.nix
+    ./discord.nix
   ];
 
   # secrets
@@ -27,6 +28,11 @@
     restic = {
       file = ../../secrets/restic.age;
       owner = "nextcloud";
+      mode = "600";
+    };
+    discord = {
+      file = ../../secrets/discord_bot_token.age;
+      owner = "stefan";
       mode = "600";
     };
   };
