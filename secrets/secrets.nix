@@ -10,4 +10,5 @@ in
 {
   "rclone.conf.age".publicKeys = users ++ systems;
   "restic.age".publicKeys = users ++ systems;
+  "discord_bot_token.age".publicKeys = users ++ systems;
 }
