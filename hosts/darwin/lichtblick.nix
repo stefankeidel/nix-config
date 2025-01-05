@@ -10,6 +10,8 @@
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.azure-cli
     pkgs.kubelogin
+    pkgs.jetbrains.datagrip
+    pkgs.raycast
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
