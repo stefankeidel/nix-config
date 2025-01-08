@@ -46,10 +46,6 @@
 
   services.nix-daemon.enable = true;
 
-  # enable emacs daemon
-  services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs29;
-
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
