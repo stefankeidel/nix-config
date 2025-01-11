@@ -100,6 +100,7 @@ in {
             pythonShell = "nix develop ~/code/nix-config/#python311 -c $SHELL";
             k = "kubectl -n data";
             h = "helm --namespace data";
+            dl = "cd ~/Downloads";
           };
 
           history = {
