@@ -93,7 +93,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.stefan = import ./hosts/nixie/home.nix;
 
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {inherit inputs;};
         }
       ];
     };

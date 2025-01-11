@@ -1,10 +1,7 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   systemd.services."kirkbot" = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
     description = "kirkbot, my Discord bot";
 
     # Ensure it is enabled and starts automatically
