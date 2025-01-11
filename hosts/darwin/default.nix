@@ -35,6 +35,13 @@
       group = "staff";
       mode = "600";
     };
+    pgpass = {
+      file = ../../secrets/pgpass.age;
+      path = userConfig.home + "/.pgpass";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
   };
 
   # packages to install on Darwin desktop systems
