@@ -7,6 +7,7 @@ with pkgs; [
   pkgs.coreutils
   pkgs.curl
   pkgs.dua
+  pkgs.emacs-lsp-booster
   pkgs.eza
   pkgs.git
   pkgs.httpie

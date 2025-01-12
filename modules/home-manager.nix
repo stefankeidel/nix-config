@@ -44,6 +44,8 @@ in {
           PYTHONBREAKPOINT = "pudb.set_trace";
           BAT_THEME = "TwoDark";
 
+          LSP_USE_PLISTS = "true";
+
           # correct grey for zsh autocomplete
           ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=243";
 
