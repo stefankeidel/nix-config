@@ -12,11 +12,11 @@
     emacsclient -c -n 1>/dev/null 2>&1 &
   '';
 in {
-
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.discord
     pkgs.ffmpeg
     pkgs.ghostscript
+    pkgs.postgresql
     pkgs.yt-dlp
     pkgs.zoom-us
     (writeShellScriptBin "do_bak" ''
