@@ -70,6 +70,10 @@ in {
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file."emacs-launcher.command".source = myEmacsLauncher;
         file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
+
+        file.".vim/backups/.keep".source = builtins.toFile "keep" "";
+        file.".vim/swaps/.keep".source = builtins.toFile "keep" "";
+        file.".vim/undo/.keep".source = builtins.toFile "keep" "";
       };
 
       programs = {
@@ -91,6 +95,11 @@ in {
             source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
 
             eval "$(/opt/homebrew/bin/brew shellenv)"
+
+            export XDG_DATA_HOME = $HOME/.local/share
+            export XDG_STATE_HOME = $HOME/.local/state
+            export XDG_CACHE_HOME = $HOME/.cache
+
             source ~/.functions
             source ~/.extra
             source ~/.config/discord_token
