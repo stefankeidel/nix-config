@@ -13,8 +13,6 @@
       set -euo pipefail
       d=`date +"%Y%m%d-%H%M"`
 
-      mkdir -p /var/bak/nextcloud/dirbak/
-
       /run/current-system/sw/bin/nextcloud-occ maintenance:mode --on
 
       /run/current-system/sw/bin/mysqldump --add-drop-database \
