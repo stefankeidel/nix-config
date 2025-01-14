@@ -16,7 +16,6 @@ in {
     pkgs.discord
     pkgs.ffmpeg
     pkgs.ghostscript
-    pkgs.postgresql
     pkgs.yt-dlp
     pkgs.zoom-us
     (writeShellScriptBin "do_bak" ''

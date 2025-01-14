@@ -14,6 +14,7 @@ with pkgs; [
   pkgs.netcat-gnu
   pkgs.nix-direnv
   pkgs.nmap
+  pkgs.postgresql
   pkgs.pv
   pkgs.rclone
   pkgs.restic
