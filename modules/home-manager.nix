@@ -135,6 +135,35 @@ in {
           enable = true;
           enableZshIntegration = true;
         };
+
+        vscode = {
+          enable = true;
+
+          extensions = let
+            inherit (inputs.nix-vscode-extensions.extensions.${pkgs.system}) vscode-marketplace;
+          in
+            with vscode-marketplace; [
+              jnoortheen.nix-ide
+              ms-python.python
+              ms-kubernetes-tools.vscode-kubernetes-tools
+              samuelcolvin.jinjahtml
+              innoverio.vscode-dbt-power-user
+              github.copilot
+              github.copilot-chat
+            ];
+
+          userSettings = {
+            "workbench.colorTheme" = "Dracula Theme";
+            "editor.formatOnSave" = true;
+            "editor.fontSize" = 17;
+            "editor.fontFamily" = "Hack Nerd Font";
+            "editor.renderWhitespace" = "trailing";
+            "files.associations" = {
+              "*.sql" = "jinja-sql";
+              "*.yml" = "jinja-yaml";
+            };
+          };
+        };
       };
     };
   };
