@@ -168,6 +168,7 @@ in {
             };
             # todo: needs to be dynamic
             "dbt.sqlFmtPath" = "/Users/stefan.keidel@lichtblick.de/code/accounting/dbt/.venv/bin/sqlfmt";
+            "dbt.hideWalkthrough" = true;
           };
         };
       };
