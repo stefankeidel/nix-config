@@ -162,6 +162,12 @@ in {
               "*.sql" = "jinja-sql";
               "*.yml" = "jinja-yaml";
             };
+            "[jinja-sql]" = {
+              "editor.defaultFormatter" = "innoverio.vscode-dbt-power-user";
+              "editor.formatOnSave" = true;
+            };
+            # todo: needs to be dynamic
+            "dbt.sqlFmtPath" = "/Users/stefan.keidel@lichtblick.de/code/accounting/dbt/.venv/bin/sqlfmt";
           };
         };
       };
