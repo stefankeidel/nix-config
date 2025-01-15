@@ -155,7 +155,7 @@ in {
           userSettings = {
             "workbench.colorTheme" = "Dracula Theme";
             "editor.formatOnSave" = true;
-            "editor.fontSize" = 17;
+            "editor.fontSize" = 16;
             "editor.fontFamily" = "Hack Nerd Font";
             "editor.renderWhitespace" = "trailing";
             "files.associations" = {
