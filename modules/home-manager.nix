@@ -166,8 +166,7 @@ in {
               "editor.defaultFormatter" = "innoverio.vscode-dbt-power-user";
               "editor.formatOnSave" = true;
             };
-            # todo: needs to be dynamic
-            "dbt.sqlFmtPath" = "/Users/stefan.keidel@lichtblick.de/code/accounting/dbt/.venv/bin/sqlfmt";
+            "dbt.sqlFmtPath" = "${userConfig.home}/code/accounting/dbt/.venv/bin/sqlfmt";
             "dbt.hideWalkthrough" = true;
           };
         };
