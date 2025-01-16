@@ -166,7 +166,6 @@ in {
               "editor.defaultFormatter" = "innoverio.vscode-dbt-power-user";
               "editor.formatOnSave" = true;
             };
-            "dbt.sqlFmtPath" = "${userConfig.home}/code/accounting/dbt/.venv/bin/sqlfmt";
             "dbt.hideWalkthrough" = true;
           };
         };
