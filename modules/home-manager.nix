@@ -148,8 +148,9 @@ in {
               ms-kubernetes-tools.vscode-kubernetes-tools
               samuelcolvin.jinjahtml
               innoverio.vscode-dbt-power-user
-              github.copilot
-              github.copilot-chat
+              # github.copilot
+              # github.copilot-chat
+              saoudrizwan.claude-dev
             ];
 
           userSettings = {
