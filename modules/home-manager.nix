@@ -154,6 +154,7 @@ in {
             ];
 
           userSettings = {
+            "git.openRepositoryInParentFolders" = "always";
             "workbench.colorTheme" = "Dracula Theme";
             "editor.formatOnSave" = true;
             "editor.fontSize" = 16;
