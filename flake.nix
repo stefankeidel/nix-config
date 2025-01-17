@@ -36,7 +36,7 @@
     agenix.inputs.home-manager.follows = "home-manager";
 
     # vscode
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    # nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = inputs @ {

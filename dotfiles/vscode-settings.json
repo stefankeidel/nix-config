@@ -1,0 +1,17 @@
+{
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+    "editor.formatOnSave": true
+  },
+  "dbt.hideWalkthrough": true,
+  "editor.fontFamily": "Hack Nerd Font",
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "trailing",
+  "files.associations": {
+    "*.sql": "jinja-sql",
+    "*.yml": "jinja-yaml"
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "workbench.colorTheme": "Dracula Theme"
+}
