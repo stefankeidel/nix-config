@@ -74,6 +74,7 @@ in {
         file.".vim/backups/.keep".source = builtins.toFile "keep" "";
         file.".vim/swaps/.keep".source = builtins.toFile "keep" "";
         file.".vim/undo/.keep".source = builtins.toFile "keep" "";
+        file."/Library/Application Support/Code/User/settings.json".source = ../dotfiles/vscode-settings.json;
       };
 
       programs = {
