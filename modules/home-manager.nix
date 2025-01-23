@@ -66,6 +66,7 @@ in {
         file.".hushlogin".source = ../dotfiles/hushlogin;
         file.".gitconfig".source = ../dotfiles/gitconfig;
         file.".tmux.conf".source = ../dotfiles/tmux.conf;
+        file.".update_code.sh".source = ../dotfiles/update_code.sh;
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file."emacs-launcher.command".source = myEmacsLauncher;
