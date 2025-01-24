@@ -11,7 +11,8 @@
     pkgs.azure-cli
     pkgs.kubelogin
     pkgs.jetbrains.datagrip
-    pkgs.raycast
+    pkgs.zoom-us
+    #pkgs.raycast
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e

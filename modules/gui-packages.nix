@@ -8,5 +8,4 @@ with pkgs; [
   pkgs.signal-desktop
   pkgs.spotify
   pkgs.wezterm
-  pkgs.zoom-us
 ]

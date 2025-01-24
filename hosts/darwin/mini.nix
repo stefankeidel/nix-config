@@ -17,7 +17,6 @@ in {
     pkgs.ffmpeg
     pkgs.ghostscript
     pkgs.yt-dlp
-    pkgs.zoom-us
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
