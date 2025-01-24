@@ -77,8 +77,7 @@
   # key repeat
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
-  # dock position bottom
-  system.defaults.dock.orientation = "bottom";
+  system.defaults.dock.orientation = "right";
 
   # various auto subs
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
