@@ -11,6 +11,7 @@ with pkgs; [
   pkgs.k9s
   pkgs.kalker
   pkgs.kubectl
+  pkgs.kubectx
   pkgs.kubernetes-helm
   pkgs.morph
   pkgs.mosh
