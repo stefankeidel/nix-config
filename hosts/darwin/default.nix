@@ -42,6 +42,13 @@
       group = "staff";
       mode = "600";
     };
+    authinfo = {
+      file = ../../secrets/authinfo.age;
+      path = userConfig.home + "/.authinfo";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
   };
 
   # packages to install on Darwin desktop systems
@@ -127,10 +134,27 @@
 
   environment.systemPackages = with pkgs; [
     pkgs.emacs29
+    #pkgs.ollama
     inputs.agenix.packages.${system}.default
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
+
+  # launchd = {
+  #   user = {
+  #     agents = {
+  #       ollama-serve = {
+  #         command = "${pkgs.ollama}/bin/ollama serve";
+  #         serviceConfig = {
+  #           KeepAlive = true;
+  #           RunAtLoad = true;
+  #           StandardOutPath = "/tmp/ollama_stefan.out.log";
+  #           StandardErrorPath = "/tmp/ollama_stefan.err.log";
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 }
