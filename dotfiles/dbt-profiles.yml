@@ -152,3 +152,22 @@ pricing:
       threads: 4
       client_session_keep_alive: False
       query_tag: dev_dbt
+
+b2b:
+  target: local_dev
+  outputs:
+    local_dev:
+      type: snowflake
+      account: xr33368.west-europe.azure
+
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_KEYFILE_PATH') }}"
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_KEYFILE_PASSWORD') }}"
+
+      database: "B2B_DEV_DWH"
+      warehouse: COMPUTE_WH
+      role: DEV_TRANSFORMER
+      schema: INTERMEDIATE
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dev_dbt
