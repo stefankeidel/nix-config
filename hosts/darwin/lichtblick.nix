@@ -12,6 +12,7 @@
     pkgs.kubelogin
     pkgs.jetbrains.datagrip
     pkgs.zoom-us
+    pkgs.ollama
     #pkgs.raycast
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
