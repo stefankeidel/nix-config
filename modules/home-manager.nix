@@ -124,6 +124,8 @@ in {
             export XDG_STATE_HOME=$HOME/.local/state
             export XDG_CACHE_HOME=$HOME/.cache
 
+            export PATH=$HOME/.local/bin:$PATH
+
             source ~/.functions
             source ~/.extra
             source ~/.config/discord_token
