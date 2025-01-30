@@ -84,7 +84,7 @@
   # key repeat
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
-  system.defaults.dock.orientation = "bottom";
+  system.defaults.dock.orientation = "left";
 
   # various auto subs
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
