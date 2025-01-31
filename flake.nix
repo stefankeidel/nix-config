@@ -71,8 +71,6 @@
           pkgs-unstable.azure-cli
           pkgs-unstable.openssl
           pkgs-unstable.postgresql
-          pkgs-unstable.pre-commit
-          pkgs-unstable.uv
         ];
         # You can also add commands that run on shell startup with shellHook
         shellHook = ''
