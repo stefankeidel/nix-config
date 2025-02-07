@@ -25,6 +25,16 @@ config.keys = {
       mods = 'ALT',
       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
    },
+   {
+      key = 'LeftArrow',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection 'Left',
+   },
+   {
+      key = 'RightArrow',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection 'Right',
+   },
 }
 
 -- and finally, return the configuration to wezterm
