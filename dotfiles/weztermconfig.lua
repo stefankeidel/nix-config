@@ -18,5 +18,14 @@ config.window_close_confirmation = 'NeverPrompt'
 
 config.front_end = "WebGpu"
 
+config.keys = {
+   -- This will create a new split and run your default program inside it
+   {
+      key = '/',
+      mods = 'ALT',
+      action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+   },
+}
+
 -- and finally, return the configuration to wezterm
 return config
