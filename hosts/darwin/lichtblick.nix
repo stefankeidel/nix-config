@@ -13,7 +13,7 @@
     pkgs.jetbrains.datagrip
     pkgs.zoom-us
     pkgs.ollama
-    #pkgs.raycast
+    pkgs.ffmpeg
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
