@@ -13,5 +13,6 @@
     "*.yml": "jinja-yaml"
   },
   "git.openRepositoryInParentFolders": "always",
-  "workbench.colorTheme": "Dracula Theme"
+  "workbench.colorTheme": "Dracula Theme",
+  "chat.agent.enabled": true
 }
