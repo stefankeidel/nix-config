@@ -23,5 +23,5 @@ with pkgs; [
   pkgs.terraform
   pkgs.terraform-ls
   pkgs.uv
-  inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
+  pkgs.bitwarden-cli
 ]
