@@ -12,6 +12,8 @@
     emacsclient -c -n 1>/dev/null 2>&1 &
   '';
 in {
+  ids.gids.nixbld = 350;
+
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     # pkgs.discord
     pkgs.ffmpeg
