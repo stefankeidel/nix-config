@@ -131,7 +131,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pkgs.emacs30
+    pkgs.emacs29
     inputs.agenix.packages.${system}.default
   ];
 
