@@ -54,8 +54,8 @@
   # packages to install on Darwin desktop systems
   # headless (default) packages get pulled in by the home manager module
   home-manager.users.${userConfig.name}.home.packages = lib.mkMerge [
-    # (pkgs.callPackage ../../modules/dev-packages.nix {inherit inputs;})
-    (pkgs.callPackage ../../modules/gui-packages.nix {inherit inputs;})
+    (pkgs.callPackage ../../modules/dev-packages.nix {inherit inputs;})
+    # (pkgs.callPackage ../../modules/gui-packages.nix {inherit inputs;})
   ];
 
   # Necessary for using flakes on this system.
