@@ -14,5 +14,6 @@
   },
   "git.openRepositoryInParentFolders": "always",
   "workbench.colorTheme": "Dracula Theme",
-  "chat.agent.enabled": true
+  "chat.agent.enabled": true,
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot"
 }
