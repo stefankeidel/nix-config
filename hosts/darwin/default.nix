@@ -131,7 +131,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pkgs.emacs30
+    (emacs.override { withNativeCompilation = false; })
     inputs.agenix.packages.${system}.default
   ];
 
