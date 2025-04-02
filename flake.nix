@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+
+    # last known working version of bwcli
+    bwcli.url = "github:NixOS/nixpkgs/4b9b83d5a92e8c1fbfd8eb27eda375908c11ec4d";
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +42,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    bwcli,
     nix-darwin,
     nix-stable,
     home-manager,
