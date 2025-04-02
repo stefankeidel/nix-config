@@ -13,6 +13,7 @@ with pkgs; [
   pkgs.kubectl
   pkgs.kubectx
   pkgs.kubernetes-helm
+  pkgs.mise
   pkgs.morph
   pkgs.mosh
   pkgs.nodejs
