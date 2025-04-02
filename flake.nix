@@ -4,9 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-
-    # last known working version of bwcli
-    bwcli.url = "github:NixOS/nixpkgs/4b9b83d5a92e8c1fbfd8eb27eda375908c11ec4d";
+    bwcli.url = "github:NixOS/nixpkgs/cfa3e57cd9accf657ed8933295fc8717ad3d2476";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
