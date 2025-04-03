@@ -120,6 +120,7 @@ in {
             source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
 
             eval "$(/opt/homebrew/bin/brew shellenv)"
+            eval "$(mise activate zsh)"
 
             export XDG_DATA_HOME=$HOME/.local/share
             export XDG_STATE_HOME=$HOME/.local/state
