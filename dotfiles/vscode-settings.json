@@ -16,5 +16,6 @@
   "workbench.colorTheme": "Dracula Theme",
   "chat.agent.enabled": true,
   "files.trimTrailingWhitespace": true,
-  "github.copilot.selectedCompletionModel": "gpt-4o-copilot"
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "window.zoomLevel": 1
 }
