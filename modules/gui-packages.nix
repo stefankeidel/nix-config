@@ -7,5 +7,5 @@ with pkgs; [
   pkgs.appcleaner
   #pkgs.signal-desktop
   #pkgs.spotify
-  pkgs.wezterm
+  #pkgs.wezterm
 ]
