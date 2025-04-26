@@ -116,7 +116,7 @@ in {
           syntaxHighlighting.enable = true;
 
           # bit hacky way to source the theme but it works :shrug:
-          initExtra = ''
+          initContent = ''
             source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme;
 
             eval "$(/opt/homebrew/bin/brew shellenv)"
