@@ -88,14 +88,6 @@
       modules = [
         agenix.nixosModules.default
         ./hosts/nixie/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.stefan = import ./hosts/nixie/home.nix;
-
-          home-manager.extraSpecialArgs = {inherit inputs;};
-        }
       ];
     };
     # Mac Laptop crap
