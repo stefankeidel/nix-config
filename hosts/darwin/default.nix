@@ -55,7 +55,7 @@
   # headless (default) packages get pulled in by the home manager module
   home-manager.users.${userConfig.name}.home.packages = lib.mkMerge [
     (pkgs.callPackage ../../modules/dev-packages.nix {inherit inputs;})
-    # (pkgs.callPackage ../../modules/gui-packages.nix {inherit inputs;})
+    (pkgs.callPackage ../../modules/gui-packages.nix {inherit inputs;})
   ];
 
   # Necessary for using flakes on this system.
@@ -131,7 +131,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pkgs.emacs30
+    (emacs.override { withNativeCompilation = false; })
     inputs.agenix.packages.${system}.default
   ];
 

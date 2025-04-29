@@ -15,5 +15,7 @@
   "git.openRepositoryInParentFolders": "always",
   "workbench.colorTheme": "Dracula Theme",
   "chat.agent.enabled": true,
-  "github.copilot.selectedCompletionModel": "gpt-4o-copilot"
+  "files.trimTrailingWhitespace": true,
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "window.zoomLevel": 1
 }
