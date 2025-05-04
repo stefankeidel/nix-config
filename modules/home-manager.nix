@@ -6,12 +6,7 @@
   home-manager,
   userConfig,
   ...
-}: let
-  myEmacsLauncher = pkgs.writeScript "emacs-launcher.command" ''
-    #!/bin/zsh
-    emacsclient -c -n 1>/dev/null 2>&1 &
-  '';
-in {
+}: {
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
@@ -69,7 +64,6 @@ in {
         file.".update_code.sh".source = ../dotfiles/update_code.sh;
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
-        file."emacs-launcher.command".source = myEmacsLauncher;
         file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
 
         file.".vim/backups/.keep".source = builtins.toFile "keep" "";
