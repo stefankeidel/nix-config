@@ -5,7 +5,7 @@
   },
   "dbt.hideWalkthrough": true,
   "editor.fontFamily": "Hack Nerd Font",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "trailing",
   "files.associations": {
@@ -17,7 +17,7 @@
   "chat.agent.enabled": true,
   "files.trimTrailingWhitespace": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "docker.extension.dockerEngineAvailabilityPrompt": false,
   "containers.containerClient": "com.microsoft.visualstudio.containers.docker"
 }
