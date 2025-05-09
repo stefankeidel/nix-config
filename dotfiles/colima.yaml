@@ -196,9 +196,9 @@ sshPort: 0
 #
 # Colima default behaviour: $HOME and /tmp/colima are mounted as writable.
 # Default: []
-mounts:
-  - location: /Volumes/wd/gopro
-    writable: true
+mounts: []
+  ### - location: /Volumes/wd/gopro
+  ###   writable: true
 
 # Environment variables for the virtual machine.
 #
