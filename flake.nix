@@ -66,7 +66,6 @@
         packages = [
           pythonPackage
           poetrypin.poetry
-          pkgs-unstable.azure-cli
           pkgs-unstable.openssl
           pkgs-unstable.postgresql
         ];

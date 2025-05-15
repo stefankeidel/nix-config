@@ -10,9 +10,7 @@
   ids.gids.nixbld = 350;
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
-    pkgs.azure-cli
     pkgs.kubelogin
-    pkgs.ffmpeg
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
