@@ -14,7 +14,7 @@
     ./nextcloud.nix
     ./website.nix
     ./backup.nix
-    ./discord.nix
+    #./discord.nix # disable for now, too annoying
   ];
 
   # secrets
