@@ -85,7 +85,7 @@
   };
 
   # it's just me, so :shrug:
-  security.sudo.wheelNeedsPassword = false;
+  security.sudo.wheelNeedsPassword = true;
 
   # yes, flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
