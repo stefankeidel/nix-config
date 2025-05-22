@@ -51,6 +51,8 @@
     };
   };
 
+  system.primaryUser = userConfig.name;
+
   # packages to install on Darwin desktop systems
   # headless (default) packages get pulled in by the home manager module
   home-manager.users.${userConfig.name}.home.packages = lib.mkMerge [
