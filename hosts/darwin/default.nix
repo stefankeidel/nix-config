@@ -35,6 +35,13 @@
       group = "staff";
       mode = "600";
     };
+    hcloud_token = {
+      file = ../../secrets/hcloud_token.age;
+      path = userConfig.home + "/.config/hcloud_token";
+      owner = userConfig.name;
+      group = "staff";
+      mode = "600";
+    };
     pgpass = {
       file = ../../secrets/pgpass.age;
       path = userConfig.home + "/.pgpass";
