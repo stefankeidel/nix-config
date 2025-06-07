@@ -21,8 +21,8 @@ with pkgs; [
   pkgs.pwgen
   pkgs.pyright
   pkgs.python312
-  pkgs.terraform
-  pkgs.terraform-ls
+  #pkgs.terraform
+  #pkgs.terraform-ls
   pkgs.uv
   #inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
 ]
