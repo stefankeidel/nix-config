@@ -1,7 +1,7 @@
 {
     "mcpServers": {
         "filesystem": {
-            "command": "npx",
+            "command": "/etc/profiles/per-user/stefan.keidel@lichtblick.de/bin/npx",
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
