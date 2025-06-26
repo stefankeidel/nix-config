@@ -71,6 +71,7 @@
         file.".vim/undo/.keep".source = builtins.toFile "keep" "";
         file."/Library/Application Support/Code/User/settings.json".source = ../dotfiles/vscode-settings.json;
         file."/Library/Application Support/Code - Insiders/User/settings.json".source = ../dotfiles/vscode-settings.json;
+        file."/Library/Application Support/Claude/claude_desktop_config.json".source = ../dotfiles/claude-desktop-config.json;
       };
 
       programs = {
