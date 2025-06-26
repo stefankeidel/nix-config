@@ -5,8 +5,7 @@
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "/Users/stefan.keidel@lichtblick.de/Nextcloud",
-                "/Users/stefan.keidel@lichtblick.de/code"
+                "/Users/stefan.keidel@lichtblick.de/Nextcloud"
             ]
         }
     }
