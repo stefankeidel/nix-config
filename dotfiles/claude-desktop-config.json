@@ -8,7 +8,7 @@
                 "/Users/stefan.keidel@lichtblick.de/Nextcloud"
             ],
             "env": {
-                "PATH": "/etc/profiles/per-user/stefan.keidel@lichtblick.de/bin"
+                "PATH": "/etc/profiles/per-user/stefan.keidel@lichtblick.de/bin:/run/current-system/sw/bin"
             }
         }
     }
