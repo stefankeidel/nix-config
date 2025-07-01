@@ -21,5 +21,8 @@
   "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
   "github.copilot.chat.agent.thinkingTool": true,
   "chat.mcp.enabled": false,
-  "altimate.disableMcpServer": true
+  "altimate.disableMcpServer": true,
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "disabled"
+  }
 }
