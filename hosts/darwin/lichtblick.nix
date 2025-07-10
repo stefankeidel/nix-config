@@ -11,6 +11,7 @@
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.kubelogin
+    pkgs.mermaid-cli
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
