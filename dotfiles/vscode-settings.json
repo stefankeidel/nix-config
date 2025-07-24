@@ -21,7 +21,7 @@
   "docker.extension.dockerEngineAvailabilityPrompt": false,
   "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
   "github.copilot.chat.agent.thinkingTool": true,
-  "chat.mcp.enabled": false,
+  "chat.mcp.enabled": true,
   "altimate.disableMcpServer": true,
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "disabled"
