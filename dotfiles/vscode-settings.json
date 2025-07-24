@@ -12,7 +12,7 @@
     "*.sql": "jinja-sql"
   },
   "git.openRepositoryInParentFolders": "always",
-  "workbench.colorTheme": "Dracula Theme",
+  "workbench.colorTheme": "Visual Studio Dark",
   "chat.agent.enabled": true,
   "chat.mcp.enabled": true,
   "files.trimTrailingWhitespace": true,
