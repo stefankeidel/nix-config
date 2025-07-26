@@ -5,9 +5,11 @@
 }:
 with pkgs; [
   pkgs.alejandra
+  pkgs.beam27Packages.elixir
   pkgs.colima
   pkgs.docker-buildx
   pkgs.docker-client
+  pkgs.doctl
   pkgs.k9s
   pkgs.kalker
   pkgs.kubectl
@@ -18,11 +20,13 @@ with pkgs; [
   pkgs.mosh
   pkgs.nodejs
   pkgs.pre-commit
+  pkgs.pulumi
   pkgs.pwgen
   pkgs.pyright
   pkgs.python312
+  pkgs.uv
+  # these three always made problems, so I'm installing them using `mise` now
   #pkgs.terraform
   #pkgs.terraform-ls
-  pkgs.uv
   #inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
 ]
