@@ -83,12 +83,13 @@
       "s-m l" #'magit-log-buffer-file
       "s-m b" #'magit-blame)
 
-; window switching stuff
+; global stuff
 (map! "s-w"   #'next-multiframe-window
       "s-e"   #'consult-buffer
       "C-c r" #'consult-ripgrep
       "C-s"   #'consult-line
-      "s-z"   #'avy-goto-char)
+      "s-z"   #'avy-goto-char
+      "s-l"   #'gptel-menu)
 
 ; kill ring navigation
 (use-package! browse-kill-ring
@@ -162,8 +163,6 @@
   (gptel-make-gh-copilot "Copilot")
   (setq gptel-model 'claude-3.7-sonnet
         gptel-backend (gptel-make-gh-copilot "Copilot"))
-
-  (map! "s-l" #'gptel-menu)
 )
 
 ; my legacy org mode clusterfuck of a configuration
