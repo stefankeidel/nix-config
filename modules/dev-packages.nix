@@ -9,8 +9,6 @@ with pkgs; [
   pkgs.docker-buildx
   pkgs.docker-client
   pkgs.doctl
-  pkgs.elixir
-  pkgs.elixir-ls
   pkgs.k9s
   pkgs.kalker
   pkgs.kubectl
