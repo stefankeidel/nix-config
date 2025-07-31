@@ -114,8 +114,13 @@
 (use-package! visual-regexp-steroids)
 (use-package! crux)
 
+(use-package! multiple-cursors
+    :config
+    (map! "s-d" #'mc/mark-all-like-this)
+    (map! "s-." #'mc/mark-next-like-this))
+
 ; my legacy org mode clusterfuck of a configuration
-; should be at the very bottom
+; should be at the very bottom and refactored at some point
 (after! org
   (use-package! german-holidays)
   (use-package! ob-http)
@@ -186,4 +191,49 @@
             (todo "SAVED")
             ))
           ))
+
+  (setq org-capture-templates '(
+   ("t" "Todo Lichtblick" entry
+    (file+headline "~/org/lichtblick.org" "Tasks")
+    "* TODO %i%?")
+   ("s" "Todo Stefan" entry
+    (file+headline "~/org/stefan.org" "tasks")
+    "* TODO %i%?")
+   ;; ("c" "Calendar" entry
+   ;;  (file+headline "~/org/stefan.org" "calendar")
+   ;;  "* %i%? \n   %t")
+   ;; ;; ("s" "Standup" entry
+   ;; ;;  (file+headline "~/org/idagio.org" "standups")
+   ;; ;;  "** Standup %t\n*** yesterday\n-%?\n*** today\n-\n")
+   ("r" "Reading List" entry
+    (file+headline "~/org/reading.org" "from template")
+    "** QUEUE %?")
+   ))
+
+  (use-package! org-roam
+    :custom
+    (org-roam-directory (file-truename "~/org-roam/"))
+    (org-roam-capture-templates
+     '(
+     ("d" "default" plain
+        "%?"
+        :if-new (file+head "%<%Y-%m-%d--%H-%M-%S>-${slug}.org" "#+title: ${title}\n#+filetags:")
+        :unnarrowed t)
+     ("t" "ticket" plain
+      "* https://lichtblick.atlassian.net/browse/${title}\n\n%?\n"
+      :if-new (file+head "lichtblick-tickets/%<%Y-%m-%d--%H-%M-%S>-${slug}.org"
+                         "#+title: ${title}\n#+FILETAGS: ticket:lichtblick"
+                         )
+      :unnarrowed t)
+      )
+     )
+    :config
+    (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:60}" 'face 'org-tag)))
+    (setq org-roam-completion-everywhere t)
+    (org-roam-db-autosync-mode)
+    (map! "s-b f" #'org-roam-node-find)
+    (map! "s-b g" #'org-roam-graph)
+    (map! "s-b i" #'org-roam-node-insert)
+    (map! "s-b c" #'org-roam-cappture)
+    )
 )

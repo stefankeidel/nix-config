@@ -55,3 +55,5 @@
 (package! visual-regexp-steroids)
 (package! crux)
 (package! ob-http)
+(package! org-roam)
+(package! multiple-cursors)
