@@ -55,6 +55,12 @@
           AIRFLOW_PLATFORM = "linux/arm64";
         };
 
+        # emacs config
+        file.".config/doom" = {
+          source = ../dotfiles/doom-emacs;
+          recursive = true;
+        };
+
         file.".vimrc".source = ../dotfiles/vim_config;
         file.".wezterm.lua".source = ../dotfiles/weztermconfig.lua;
         file.".functions".source = ../dotfiles/functions;
