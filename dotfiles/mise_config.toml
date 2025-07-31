@@ -1,0 +1,11 @@
+[settings]
+idiomatic_version_file_enable_tools = []
+experimental = true
+
+[tools]
+azure-cli = "latest"
+bitwarden = "cli-v2025.3.0"
+erlang = "latest"
+poetry = "1.6.1"
+elixir-ls = "latest"
+elixir = "latest"

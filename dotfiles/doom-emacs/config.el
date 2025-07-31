@@ -282,3 +282,9 @@
     (map! "s-b c" #'org-roam-cappture)
     )
 )
+
+;; elixir config
+
+(after! eglot
+  (add-to-list 'eglot-server-programs '(elixir-mode "elixir-ls"))
+  )
