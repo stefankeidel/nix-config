@@ -162,8 +162,7 @@
 (after! gptel
   (gptel-make-gh-copilot "Copilot")
   (setq gptel-model 'claude-sonnet-4
-        gptel-backend (gptel-make-gh-copilot "Copilot"))
-)
+        gptel-backend (gptel-make-gh-copilot "Copilot")))
 
 ; my legacy org mode clusterfuck of a configuration
 ; should be at the very bottom and refactored at some point
