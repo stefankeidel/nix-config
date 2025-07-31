@@ -156,6 +156,13 @@
       (lambda (lang body)
         (not (string= lang "sql"))))
 
+;; AI stuff
+(after! gptel
+  (gptel-make-gh-copilot "Copilot")
+  (setq gptel-model 'claude-3.7-sonnet
+        gptel-backend (gptel-make-gh-copilot "Copilot"))
+)
+
 ; my legacy org mode clusterfuck of a configuration
 ; should be at the very bottom and refactored at some point
 (after! org
