@@ -47,3 +47,11 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! browse-kill-ring)
+(package! german-holidays)
+(package! undo-tree)
+(package! visual-regexp)
+(package! visual-regexp-steroids)
+(package! crux)
+(package! ob-http)
