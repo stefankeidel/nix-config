@@ -71,7 +71,6 @@
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
         file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
-        file.".config/mise/config.toml".source = ../dotfiles/mise_config.toml;
 
         file.".vim/backups/.keep".source = builtins.toFile "keep" "";
         file.".vim/swaps/.keep".source = builtins.toFile "keep" "";
