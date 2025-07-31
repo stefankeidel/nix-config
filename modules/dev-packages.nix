@@ -6,6 +6,7 @@
 with pkgs; [
   pkgs.alejandra
   pkgs.beam27Packages.elixir
+  pkgs.beam27Packages.elixir-ls
   pkgs.colima
   pkgs.docker-buildx
   pkgs.docker-client
