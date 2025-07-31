@@ -57,3 +57,5 @@
 (package! ob-http)
 (package! org-roam)
 (package! multiple-cursors)
+(package! ob-sql-mode)
+(package! undo-fu :disable t)

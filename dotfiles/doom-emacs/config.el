@@ -98,11 +98,12 @@
 ; configure a nicer undo version
 (use-package! undo-tree
   :diminish
-  :init
-  (global-undo-tree-mode 1)
+  :config
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist
     `((".*" . ,temporary-file-directory))))
+
+(global-undo-tree-mode 1)
 
 ; projectile bindings
 (map! :map projectile-mode-map
@@ -118,6 +119,42 @@
     :config
     (map! "s-d" #'mc/mark-all-like-this)
     (map! "s-." #'mc/mark-next-like-this))
+
+; sql stuff, mostly postgres
+(use-package! ob-sql-mode)
+
+; .pgpass parser
+(defun read-file (file)
+  "Returns file as list of lines."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (split-string (buffer-string) "\n" t)))
+
+(defun pgpass-to-sql-connection (config)
+  "Returns a suitable list for sql-connection-alist from a pgpass file."
+  (append sql-connection-alist
+          (let* ((make-connection (lambda (host port db user _pass)
+                                   (list
+                                    (concat db)
+                                    (list 'sql-product ''postgres)
+                                    (list 'sql-server host)
+                                    (list 'sql-user user)
+                                    (list 'sql-port (string-to-number port))
+                                    (list 'sql-database db)))))
+            (mapcar (lambda (line)
+                      (apply make-connection (split-string line ":" t)))
+                    config))))
+
+;;; Actually populating sql-connection-alist
+(setq sql-connection-alist (pgpass-to-sql-connection (read-file "~/.pgpass")))
+
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
+
+(setq org-confirm-babel-evaluate
+      (lambda (lang body)
+        (not (string= lang "sql"))))
 
 ; my legacy org mode clusterfuck of a configuration
 ; should be at the very bottom and refactored at some point
