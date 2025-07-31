@@ -161,7 +161,7 @@
 ;; AI stuff
 (after! gptel
   (gptel-make-gh-copilot "Copilot")
-  (setq gptel-model 'claude-3.7-sonnet
+  (setq gptel-model 'claude-sonnet-4
         gptel-backend (gptel-make-gh-copilot "Copilot"))
 )
 
