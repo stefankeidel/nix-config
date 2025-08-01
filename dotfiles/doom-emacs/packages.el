@@ -59,3 +59,4 @@
 (package! multiple-cursors)
 (package! ob-sql-mode)
 (package! undo-fu :disable t)
+(package! elfeed)
