@@ -60,3 +60,5 @@
 (package! ob-sql-mode)
 (package! undo-fu :disable t)
 (package! elfeed)
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
