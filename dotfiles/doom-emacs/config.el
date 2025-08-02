@@ -424,3 +424,6 @@
 ;;   (lambda ()
 ;;     (interactive)
 ;;     (elfeed-link-title elfeed-show-entry)))
+
+; disable confirmation on exit
+(setq confirm-kill-emacs nil)
