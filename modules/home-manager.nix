@@ -26,6 +26,9 @@
         # minimal packages, can also be used in headless systems
         packages = pkgs.callPackage ./min-packages.nix {inherit inputs;};
 
+        # explicitly set the home directory
+        homeDirectory = userConfig.home;
+
         # this is internal compatibility configuration
         # for home-manager, don't change this!
         stateVersion = "23.05";
@@ -165,42 +168,6 @@
           enable = true;
           enableZshIntegration = true;
         };
-
-        # vscode = {
-        #   enable = true;
-
-        #   extensions = let
-        #     inherit (inputs.nix-vscode-extensions.extensions.${pkgs.system}) vscode-marketplace;
-        #   in
-        #     with vscode-marketplace; [
-        #       jnoortheen.nix-ide
-        #       ms-python.python
-        #       ms-kubernetes-tools.vscode-kubernetes-tools
-        #       samuelcolvin.jinjahtml
-        #       innoverio.vscode-dbt-power-user
-        #       # github.copilot
-        #       # github.copilot-chat
-        #       saoudrizwan.claude-dev
-        #     ];
-
-        #   userSettings = {
-        #     "git.openRepositoryInParentFolders" = "always";
-        #     "workbench.colorTheme" = "Dracula Theme";
-        #     "editor.formatOnSave" = true;
-        #     "editor.fontSize" = 16;
-        #     "editor.fontFamily" = "Hack Nerd Font";
-        #     "editor.renderWhitespace" = "trailing";
-        #     "files.associations" = {
-        #       "*.sql" = "jinja-sql";
-        #       "*.yml" = "jinja-yaml";
-        #     };
-        #     "[jinja-sql]" = {
-        #       "editor.defaultFormatter" = "innoverio.vscode-dbt-power-user";
-        #       "editor.formatOnSave" = true;
-        #     };
-        #     "dbt.hideWalkthrough" = true;
-        #   };
-        # };
       };
     };
   };
