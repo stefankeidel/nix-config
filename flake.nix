@@ -62,7 +62,7 @@
 
           userConfig = {
             name = "stefan.keidel@lichtblick.de";
-            home = "/Users/stefan.keidel@lichtblick.de/";
+            home = "/Users/stefan.keidel@lichtblick.de";
           };
         };
 
@@ -83,7 +83,7 @@
 
           userConfig = {
             name = "stefan";
-            home = "/Users/stefan/";
+            home = "/Users/stefan";
           };
         };
 
