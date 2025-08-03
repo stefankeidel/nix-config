@@ -162,5 +162,11 @@
 
 	name = Stefan Keidel
 	email = stefan.keidel@lichtblick.de
+
 [credential]
+
 	helper = store
+
+[init]
+
+	defaultBranch = main
