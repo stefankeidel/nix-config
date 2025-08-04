@@ -446,3 +446,7 @@
 
 ; disable confirmation on exit
 (setq confirm-kill-emacs nil)
+
+(use-package! easy-kill
+  :config
+  (map! "s-w" #'easy-kill))
