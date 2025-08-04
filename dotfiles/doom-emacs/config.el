@@ -83,13 +83,22 @@
       "s-m l" #'magit-log-buffer-file
       "s-m b" #'magit-blame)
 
+;; some final custom keybindings
+(defun kill-buffer-basename ()
+   "Kill buffer basename"
+   (interactive)
+   (kill-new (file-name-base (buffer-file-name))))
+
 ; global stuff
 (map! "s-w"   #'next-multiframe-window
       "s-e"   #'consult-buffer
       "C-c r" #'consult-ripgrep
       "C-s"   #'consult-line
       "s-z"   #'avy-goto-char
-      "s-l"   #'gptel-menu)
+      "s-l"   #'gptel-menu
+      "s-i k" #'kill-buffer-basename
+      "s-i a" #'org-agenda
+      "s-i c" #'org-capture)
 
 ; kill ring navigation
 (use-package! browse-kill-ring
