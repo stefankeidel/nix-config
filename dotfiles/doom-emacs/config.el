@@ -449,4 +449,5 @@
 
 (use-package! easy-kill
   :config
-  (map! "M-w" #'easy-kill))
+  (map! "M-w" #'easy-kill)
+  (map! "s-," #'easy-mark))
