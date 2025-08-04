@@ -83,11 +83,19 @@
       "s-m l" #'magit-log-buffer-file
       "s-m b" #'magit-blame)
 
-;; some final custom keybindings
+; random functions for dbt navigation enhancements
 (defun kill-buffer-basename ()
    "Kill buffer basename"
    (interactive)
    (kill-new (file-name-base (buffer-file-name))))
+
+(use-package! rg)
+
+(defun lichtblick-dbt-search-model ()
+  "Search for model name, as defined by basename of current file"
+  (interactive)
+
+  (projectile-ripgrep (file-name-base (buffer-file-name))))
 
 ; global stuff
 (map! "s-w"   #'next-multiframe-window
@@ -97,8 +105,10 @@
       "s-z"   #'avy-goto-char
       "s-l"   #'gptel-menu
       "s-i k" #'kill-buffer-basename
+      "s-i s" #'lichtblick-dbt-search-model
       "s-i a" #'org-agenda
-      "s-i c" #'org-capture)
+      "s-i c" #'org-capture
+      "M-y"   #'browse-kill-ring)
 
 ; kill ring navigation
 (use-package! browse-kill-ring
@@ -119,7 +129,7 @@
 ; projectile bindings
 (map! :map projectile-mode-map
       "s-p" #'projectile-command-map
-      "s-f" #'+default/search-project-for-symbol-at-point)
+      "s-f" #'projectile-ripgrep)
 
 ; some imports
 (use-package! visual-regexp)
