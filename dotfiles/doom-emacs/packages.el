@@ -64,3 +64,4 @@
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 (package! rg)
 (package! easy-kill)
+(package! yasnippet)

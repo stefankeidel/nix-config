@@ -451,3 +451,9 @@
   :config
   (map! "M-w" #'easy-kill)
   (map! "s-," #'easy-mark))
+
+(use-package! yasnippet
+  :init
+  (add-to-list 'yas-snippet-dirs (f-expand "~/.config/doom/snippets"))
+  :config
+  (yas-global-mode 1))
