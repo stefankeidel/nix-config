@@ -20,6 +20,7 @@ with pkgs; [
   pkgs.nodejs
   pkgs.pre-commit
   pkgs.pulumi
+  pkgs.pulumiPackages.pulumi-python
   pkgs.pwgen
   pkgs.pyright
   pkgs.python312
