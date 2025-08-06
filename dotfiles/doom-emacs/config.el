@@ -342,6 +342,7 @@
         ("http://feeds.feedburner.com/martinkl" blog)
         ("https://den.dev/index.xml" blog)
         ("https://industrydecarbonization.com/rss.xml" blog interesting)
+        ("https://www.bloodinthemachine.com/feed" blog)
 
         ; econ and random stuff
         ("https://www.lesswrong.com/feed.xml?view=curated-rss" blog)
