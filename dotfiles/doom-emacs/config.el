@@ -458,3 +458,8 @@
   (add-to-list 'yas-snippet-dirs (f-expand "~/.config/doom/snippets"))
   :config
   (yas-global-mode 1))
+
+(use-package mise :demand t)
+
+(after! python
+  (global-mise-mode t))

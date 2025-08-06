@@ -65,3 +65,4 @@
 (package! rg)
 (package! easy-kill)
 (package! yasnippet)
+(package! mise)
