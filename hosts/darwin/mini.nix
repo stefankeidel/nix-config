@@ -14,6 +14,7 @@
     pkgs.ffmpeg
     pkgs.ghostscript
     pkgs.yt-dlp
+    pkgs.streamlink
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
