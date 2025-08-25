@@ -22,6 +22,7 @@ with pkgs; [
   pkgs.pwgen
   pkgs.pyright
   pkgs.python312
+  pkgs.tidy-viewer
   pkgs.uv
   # these three always made problems, so I'm installing them using `mise` now
   #pkgs.terraform
