@@ -312,6 +312,48 @@
     (map! "s-b i" #'org-roam-node-insert)
     (map! "s-b c" #'org-roam-cappture)
     )
+
+  (use-package! org-present
+  :config
+  ;; Hooks
+  (add-hook! 'org-present-mode-hook
+    (defun +org-present-setup ()
+      ;; (jinx-mode -1)
+      (org-modern-mode -1)
+      (set (make-local-variable 'org-modern-hide-stars) t)
+      (org-modern-mode 1)
+      (org-present-big)
+      (org-display-inline-images)
+      ;; (focus-mode 1)
+      (center-content-mode 1)))
+
+  (add-hook! 'org-present-mode-quit-hook
+    (defun +org-present-teardown ()
+      ;; (jinx-mode 1)
+      (org-modern-mode -1)
+      (setq org-modern-hide-stars (default-value 'org-modern-hide-stars))
+      (org-modern-mode 1)
+      ;; (focus-mode -1)
+      (center-content-mode -1)))
+
+  ;; Custom functions
+  (defun org-present-next-item ()
+    (interactive)
+    (unless (re-search-forward "^+" nil t)
+      (org-present-next)))
+
+  (defun org-present-prev-item ()
+    (interactive)
+    (unless (re-search-backward "^+" nil t)
+      (org-present-prev)))
+
+  ;; Key bindings
+  ;; (map! :map org-present-mode-keymap
+  ;;       "<next>"     #'org-present-next-item
+  ;;       "C-<right>"  #'org-present-next-item
+  ;;       "<prior>"    #'org-present-prev-item
+  ;;       "C-<left>"   #'org-present-prev-item)
+  )
 )
 
 ;; elixir config
