@@ -69,4 +69,3 @@
 (package! center-content-mode :recipe (:host nil :type git :repo "https://git.larstvei.no/larstvei/center-content-mode.git" :branch main))
 (package! org-modern)
 (package! org-present)
-(package! focus-mode)
