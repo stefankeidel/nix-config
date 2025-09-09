@@ -66,6 +66,6 @@
 (package! easy-kill)
 (package! yasnippet)
 (package! mise)
-(package! center-content-mode :recipe (:host nil :type git :repo "https://git.larstvei.no/larstvei/center-content-mode.git" :branch main))
+(package! center-content-mode :recipe (:host nil :type git :repo "https://git.larstvei.no/larstvei/center-content-mode.git"))
 (package! org-modern)
 (package! org-present)
