@@ -443,6 +443,13 @@
       (org-capture-finalize))
   )
 
+(after! elfeed
+  (define-advice elfeed-search--header (:around (oldfun &rest args))
+  (if elfeed-db
+      (apply oldfun args)
+    "No database loaded yet"))
+)
+
 (defun elfeed-link-title (entry)
   "Copy the entry title and URL as org link to the clipboard."
   (interactive)
