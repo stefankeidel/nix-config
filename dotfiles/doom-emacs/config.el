@@ -310,7 +310,7 @@
     (map! "s-b f" #'org-roam-node-find)
     (map! "s-b g" #'org-roam-graph)
     (map! "s-b i" #'org-roam-node-insert)
-    (map! "s-b c" #'org-roam-cappture)
+    (map! "s-b c" #'org-roam-capture)
     )
 
   (use-package! org-present
