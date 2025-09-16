@@ -38,5 +38,6 @@
         "copilot/o4-mini"
       ]
     }
-  }
+  },
+  "python.defaultInterpreterPath": "/etc/profiles/per-user/stefan.keidel@lichtblick.de/bin/python"
 }
