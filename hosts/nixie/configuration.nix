@@ -15,6 +15,8 @@
     ./website.nix
     ./backup.nix
     #./discord.nix # disable for now, too annoying
+    ./rclone_mount.nix
+    ./navidrome.nix
   ];
 
   # secrets
@@ -23,6 +25,12 @@
       file = ../../secrets/rclone.conf.age;
       path = "/var/lib/nextcloud/.config/rclone/rclone.conf";
       owner = "nextcloud";
+      mode = "600";
+    };
+    rclone_navidrome = {
+      file = ../../secrets/rclone.conf.age;
+      path = "/var/lib/navidrome/.config/rclone/rclone.conf";
+      owner = "navidrome";
       mode = "600";
     };
     restic = {
@@ -81,7 +89,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stefan = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "podman"];
   };
 
   # it's just me, so :shrug:
@@ -211,7 +219,8 @@
   #   ];
   # };
   # boot.supportedFilesystems."fuse.sshfs" = true;
-  # programs.fuse.userAllowOther = true;
+
+  programs.fuse.userAllowOther = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
