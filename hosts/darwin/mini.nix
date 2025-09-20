@@ -15,6 +15,8 @@
     pkgs.ghostscript
     pkgs.yt-dlp
     pkgs.streamlink
+    pkgs.picard
+    pkgs.soulseekqt
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
