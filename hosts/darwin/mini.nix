@@ -15,6 +15,7 @@
     pkgs.ghostscript
     pkgs.yt-dlp
     pkgs.streamlink
+    pkgs.spotdl
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
