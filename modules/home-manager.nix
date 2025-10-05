@@ -134,7 +134,6 @@
 
             source ~/.functions
             source ~/.extra
-            source ~/.config/discord_token
             source ~/.config/hcloud_token
           '';
 

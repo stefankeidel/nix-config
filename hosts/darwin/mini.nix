@@ -10,7 +10,6 @@
   ids.gids.nixbld = 350;
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
-    # pkgs.discord
     pkgs.ffmpeg
     pkgs.ghostscript
     pkgs.yt-dlp

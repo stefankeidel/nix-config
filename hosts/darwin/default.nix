@@ -28,13 +28,6 @@
       group = "staff";
       mode = "600";
     };
-    discord = {
-      file = ../../secrets/discord_bot_token.age;
-      path = userConfig.home + "/.config/discord_token";
-      owner = userConfig.name;
-      group = "staff";
-      mode = "600";
-    };
     hcloud_token = {
       file = ../../secrets/hcloud_token.age;
       path = userConfig.home + "/.config/hcloud_token";

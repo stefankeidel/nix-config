@@ -14,9 +14,6 @@
     ./nextcloud.nix
     ./website.nix
     ./backup.nix
-    #./discord.nix # disable for now, too annoying
-    ./rclone_mount.nix
-    ./navidrome.nix
   ];
 
   # secrets
@@ -27,20 +24,9 @@
       owner = "nextcloud";
       mode = "600";
     };
-    rclone_navidrome = {
-      file = ../../secrets/rclone.conf.age;
-      path = "/var/lib/navidrome/.config/rclone/rclone.conf";
-      owner = "navidrome";
-      mode = "600";
-    };
     restic = {
       file = ../../secrets/restic.age;
       owner = "nextcloud";
-      mode = "600";
-    };
-    discord = {
-      file = ../../secrets/discord_bot_token.age;
-      owner = "stefan";
       mode = "600";
     };
   };
