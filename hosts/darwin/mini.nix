@@ -10,11 +10,10 @@
   ids.gids.nixbld = 350;
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
-    pkgs.ffmpeg
-    pkgs.ghostscript
-    pkgs.yt-dlp
-    pkgs.streamlink
-    pkgs.spotdl
+    # pkgs.ffmpeg
+    # pkgs.ghostscript
+    # pkgs.yt-dlp
+    # pkgs.streamlink
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e

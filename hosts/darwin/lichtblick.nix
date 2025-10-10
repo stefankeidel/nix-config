@@ -11,7 +11,10 @@
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.kubelogin
-    pkgs.mermaid-cli
+    pkgs.k9s
+    pkgs.kubectl
+    pkgs.kubectx
+    pkgs.kubernetes-helm
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e

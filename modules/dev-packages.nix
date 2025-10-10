@@ -9,14 +9,8 @@ with pkgs; [
   pkgs.docker-buildx
   pkgs.docker-client
   pkgs.doctl
-  pkgs.k9s
   pkgs.kalker
-  pkgs.kubectl
-  pkgs.kubectx
-  pkgs.kubernetes-helm
   pkgs.mise
-  pkgs.morph
-  pkgs.mosh
   pkgs.nodejs
   pkgs.pre-commit
   pkgs.pwgen
@@ -24,8 +18,4 @@ with pkgs; [
   pkgs.python312
   pkgs.tidy-viewer
   pkgs.uv
-  # these three always made problems, so I'm installing them using `mise` now
-  #pkgs.terraform
-  #pkgs.terraform-ls
-  #inputs.bwcli.legacyPackages."${pkgs.system}".bitwarden-cli
 ]
