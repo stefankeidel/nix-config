@@ -24,5 +24,6 @@
   "altimate.disableMcpServer": true,
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "disabled"
-  }
+  },
+  "python.analysis.typeCheckingMode": "strict"
 }
