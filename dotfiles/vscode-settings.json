@@ -14,7 +14,6 @@
   "git.openRepositoryInParentFolders": "always",
   "workbench.colorTheme": "Bearded Theme Arc",
   "chat.agent.enabled": true,
-  "chat.mcp.enabled": true,
   "files.trimTrailingWhitespace": true,
   "github.copilot.selectedCompletionModel": "gpt-41-copilot",
   "window.zoomLevel": 0,
