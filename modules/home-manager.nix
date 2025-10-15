@@ -56,6 +56,9 @@
           AIRFLOW_UID = 502;
           AIRFLOW_GID = 0;
           AIRFLOW_PLATFORM = "linux/arm64";
+
+          # prevent colima from overwriting config
+          COLIMA_SAVE_CONFIG = 0;
         };
 
         # emacs config
@@ -72,7 +75,7 @@
         file.".tmux.conf".source = ../dotfiles/tmux.conf;
         file.".update_code.sh".source = ../dotfiles/update_code.sh;
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
-        file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
+        file."./.colima/default/colima.yaml".source = ../dotfiles/colima.yaml;
         file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
 
         file.".vim/backups/.keep".source = builtins.toFile "keep" "";
