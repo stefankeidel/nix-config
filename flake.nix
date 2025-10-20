@@ -27,6 +27,10 @@
     # https://github.com/NixOS/nixpkgs/commit/881e946d8b96b1c52d74e2b69792aa89354feffd
     # poetrypin.url = "github:NixOS/nixpkgs/881e946d8b96b1c52d74e2b69792aa89354feffd";
 
+    # for pinning kubelogin
+    # https://github.com/NixOS/nixpkgs/commits/nixpkgs-unstable/pkgs/by-name/ku/kubelogin/package.nix
+    kubeloginpin.url = "github:NixOS/nixpkgs/0fe617b0b02eb2f8480feb0dd577953867c9edec";
+
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.home-manager.follows = "home-manager";
@@ -39,6 +43,7 @@
     nix-stable,
     home-manager,
     agenix,
+    kubeloginpin,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {

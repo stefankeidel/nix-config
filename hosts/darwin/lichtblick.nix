@@ -10,7 +10,7 @@
   ids.gids.nixbld = 350;
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
-    pkgs.kubelogin
+    inputs.kubeloginpin.legacyPackages."${pkgs.system}".kubelogin
     pkgs.k9s
     pkgs.kubectl
     pkgs.kubectx
