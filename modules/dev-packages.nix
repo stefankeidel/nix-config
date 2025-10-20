@@ -18,4 +18,5 @@ with pkgs; [
   pkgs.python312
   pkgs.tidy-viewer
   pkgs.uv
+  pkgs.yarn
 ]
