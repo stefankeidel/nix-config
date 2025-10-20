@@ -83,6 +83,8 @@
       "s-m l" #'magit-log-buffer-file
       "s-m b" #'magit-blame)
 
+(setq git-commit-summary-max-length 80)
+
 ; random functions for dbt navigation enhancements
 (defun kill-buffer-basename ()
    "Kill buffer basename"
