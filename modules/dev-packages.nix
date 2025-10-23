@@ -19,4 +19,5 @@ with pkgs; [
   pkgs.tidy-viewer
   pkgs.uv
   pkgs.yarn
+  pkgs.yq
 ]
