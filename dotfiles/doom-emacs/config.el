@@ -182,20 +182,20 @@
 ;; AI stuff
 (after! gptel
   (gptel-make-gh-copilot "Copilot")
-  (setq gptel-model 'claude-sonnet-4
+  (setq gptel-model 'gpt-5-mini
         gptel-backend (gptel-make-gh-copilot "Copilot")))
 
 ;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :config
-  (map! :map copilot-completion-map "<f2>" #'copilot-accept-completion)
-  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
-  (add-to-list 'copilot-indentation-alist '(org-mode 2))
-  (add-to-list 'copilot-indentation-alist '(text-mode 2))
-  (add-to-list 'copilot-indentation-alist '(closure-mode 2))
-  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
-)
+;; (use-package! copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :config
+;;   (map! :map copilot-completion-map "<f2>" #'copilot-accept-completion)
+;;   (add-to-list 'copilot-indentation-alist '(prog-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(org-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(text-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(closure-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
+;; )
 
 ; my legacy org mode clusterfuck of a configuration
 ; should be at the very bottom and refactored at some point
