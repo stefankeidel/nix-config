@@ -110,7 +110,9 @@
       "s-i s" #'lichtblick-dbt-search-model
       "s-i a" #'org-agenda
       "s-i c" #'org-capture
-      "M-y"   #'browse-kill-ring)
+      "M-y"   #'browse-kill-ring
+      "<f2>"  #'gptel-complete
+      "<f3>"  #'gptel-accept-completion)
 
 ; kill ring navigation
 (use-package! browse-kill-ring
@@ -183,7 +185,34 @@
 (after! gptel
   (gptel-make-gh-copilot "Copilot")
   (setq gptel-model 'gpt-5-mini
-        gptel-backend (gptel-make-gh-copilot "Copilot")))
+        gptel-backend (gptel-make-gh-copilot "Copilot"))
+
+  (use-package! macher
+      :custom
+      ;; The org UI has structured navigation and nice content folding.
+      (macher-action-buffer-ui 'org)
+    )
+
+  (use-package! gptel-autocomplete
+    :config
+    (setq gptel-autocomplete-before-context-lines 100)
+    (setq gptel-autocomplete-after-context-lines 20)
+    (setq gptel-autocomplete-temperature 0.1)
+    (setq gptel-autocomplete-use-context t)
+    )
+
+  (use-package! gptel
+      :config
+      (macher-install))
+
+  ;; (gptel-make-preset 'gpt5coding                       ;preset name, a symbol
+  ;;     :description "A preset optimized for coding tasks" ;for your reference
+  ;;     :backend "Copilot"
+  ;;     :model 'gpt-5-mini
+  ;;     :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
+  ;;     :tools '("view_buffer" "edit_buffer")) ;gptel tools or tool names
+  ;;
+)
 
 ;; accept completion from copilot and fallback to company
 ;; (use-package! copilot
@@ -360,6 +389,8 @@
 
 ;; elixir config
 (with-eval-after-load 'eglot
+  (setq eglot-ignored-server-capabilities '(:inlayHintProvider))
+
   (add-to-list 'eglot-server-programs
                '(elixir-mode "elixir-ls")))
 
@@ -387,6 +418,7 @@
         ("https://den.dev/index.xml" blog)
         ("https://industrydecarbonization.com/rss.xml" blog interesting)
         ("https://www.bloodinthemachine.com/feed" blog)
+        ("https://climatedrift.substack.com/feed" blog)
 
         ; econ and random stuff
         ("https://www.lesswrong.com/feed.xml?view=curated-rss" blog)

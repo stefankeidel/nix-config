@@ -68,5 +68,9 @@
 (package! yasnippet)
 (package! mise)
 (package! center-content-mode :recipe (:host nil :type git :repo "https://git.larstvei.no/larstvei/center-content-mode.git"))
+(package! macher
+  :recipe (:host github :repo "kmontag/macher" :files ("*.el")))
+(package! gptel-autocomplete
+  :recipe (:host github :repo "JDNdeveloper/gptel-autocomplete" :files ("*.el")))
 (package! org-modern)
 (package! org-present)

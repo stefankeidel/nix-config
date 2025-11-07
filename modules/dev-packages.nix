@@ -5,6 +5,7 @@
 }:
 with pkgs; [
   pkgs.alejandra
+  pkgs.basedpyright
   pkgs.colima
   pkgs.docker-buildx
   pkgs.docker-client
@@ -14,8 +15,6 @@ with pkgs; [
   pkgs.nodejs
   pkgs.pre-commit
   pkgs.pwgen
-  pkgs.pyright
-  pkgs.python312
   pkgs.tidy-viewer
   pkgs.uv
   pkgs.yarn
