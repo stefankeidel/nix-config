@@ -125,5 +125,12 @@
         };
       };
     };
+
+    # Convenience app for deploying nixie
+    # Usage: nix run .#deploy
+    apps.aarch64-darwin.deploy = {
+      type = "app";
+      program = "${deploy-rs.packages.aarch64-darwin.default}/bin/deploy";
+    };
   };
 }
