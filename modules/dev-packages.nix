@@ -19,4 +19,5 @@ with pkgs; [
   pkgs.uv
   pkgs.yarn
   pkgs.yq
+  pkgs.python312
 ]
