@@ -113,6 +113,9 @@
       nodes.nixie = {
         # Adjust to a reachable SSH host/IP (e.g. tailscale IP or public DNS)
         hostname = "nixie";
+        # Build the system derivation on the remote (Linux) host instead of
+        # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
+        remoteBuild = true;
         profiles.system = {
           user = "root"; # or a wheel user with passwordless sudo for activation
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
