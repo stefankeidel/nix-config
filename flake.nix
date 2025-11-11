@@ -34,6 +34,10 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.home-manager.follows = "home-manager";
+
+    # deploy-rs for remote NixOS deployments
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -44,6 +48,7 @@
     home-manager,
     agenix,
     kubeloginpin,
+    deploy-rs,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
@@ -102,5 +107,30 @@
       };
     };
     # devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
+
+    # deploy-rs configuration for deploying the nixie host
+    # dry run: nix run github:serokell/deploy-rs -- --dry-activate .#nixie
+    # actual deployment: nix run github:serokell/deploy-rs -- .#nixie
+    deploy = {
+      nodes.nixie = {
+        # Adjust to a reachable SSH host/IP (e.g. tailscale IP or public DNS)
+        hostname = "nixie";
+        # Build the system derivation on the remote (Linux) host instead of
+        # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
+        remoteBuild = true;
+        sshUser = "stefan";
+        profiles.system = {
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
+        };
+      };
+    };
+
+    # Convenience app for deploying nixie
+    # Usage: nix run .#deploy
+    apps.aarch64-darwin.deploy = {
+      type = "app";
+      program = "${deploy-rs.packages.aarch64-darwin.default}/bin/deploy";
+    };
   };
 }

@@ -79,7 +79,7 @@
   };
 
   # it's just me, so :shrug:
-  security.sudo.wheelNeedsPassword = true;
+  security.sudo.wheelNeedsPassword = false;
 
   # yes, flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -159,7 +159,7 @@
       AllowUsers = ["stefan"];
       UseDns = true;
       X11Forwarding = false;
-      PermitRootLogin = "no";
+      PermitRootLogin = "yes";
     };
   };
 
