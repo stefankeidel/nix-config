@@ -109,6 +109,8 @@
     # devShells.aarch64-darwin = builtins.mapAttrs makePythonShell pythonVersions;
 
     # deploy-rs configuration for deploying the nixie host
+    # dry run: nix run github:serokell/deploy-rs -- --dry-activate .#nixie
+    # actual deployment: nix run github:serokell/deploy-rs -- .#nixie
     deploy = {
       nodes.nixie = {
         # Adjust to a reachable SSH host/IP (e.g. tailscale IP or public DNS)
@@ -116,10 +118,8 @@
         # Build the system derivation on the remote (Linux) host instead of
         # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
         remoteBuild = true;
-        # Connect as your user but activate the system as root
         sshUser = "stefan";
         profiles.system = {
-          # system activations (switch-to-configuration) must be run as root
           user = "root";
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
         };
