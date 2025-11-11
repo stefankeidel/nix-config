@@ -117,7 +117,7 @@
         # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
         remoteBuild = true;
         profiles.system = {
-          user = "root"; # or a wheel user with passwordless sudo for activation
+          user = "stefan";
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
         };
       };

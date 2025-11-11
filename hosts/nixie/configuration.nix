@@ -79,7 +79,7 @@
   };
 
   # it's just me, so :shrug:
-  security.sudo.wheelNeedsPassword = true;
+  security.sudo.wheelNeedsPassword = false;
 
   # yes, flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -156,7 +156,7 @@
     openFirewall = false; # only via VPN/Wireguard/Tailscale
     settings = {
       PasswordAuthentication = false;
-      AllowUsers = ["stefan" "root"];
+      AllowUsers = ["stefan"];
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "yes";
