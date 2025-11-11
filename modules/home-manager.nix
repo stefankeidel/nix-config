@@ -69,10 +69,7 @@
         file.".functions".source = ../dotfiles/functions;
         file.".hushlogin".source = ../dotfiles/hushlogin;
         file.".gitconfig".source = ../dotfiles/gitconfig;
-        file.".tmux.conf".source = ../dotfiles/tmux.conf;
-        file.".update_code.sh".source = ../dotfiles/update_code.sh;
         file."./.dbt/profiles.yml".source = ../dotfiles/dbt-profiles.yml;
-        file."./.colima/_templates/default.yaml".source = ../dotfiles/colima.yaml;
         file.".config/direnv/direnv.toml".source = ../dotfiles/direnv.toml;
 
         file.".vim/backups/.keep".source = builtins.toFile "keep" "";
@@ -80,7 +77,6 @@
         file.".vim/undo/.keep".source = builtins.toFile "keep" "";
         file."/Library/Application Support/Code/User/settings.json".source = ../dotfiles/vscode-settings.json;
         file."/Library/Application Support/Code - Insiders/User/settings.json".source = ../dotfiles/vscode-settings.json;
-        file."/Library/Application Support/Claude/claude_desktop_config.json".source = ../dotfiles/claude-desktop-config.json;
       };
 
       programs = {
@@ -89,6 +85,8 @@
         tmux.enable = true;
         jq.enable = true;
         direnv.enable = true;
+        television.enable = true;
+        nix-search-tv.enable = true;
 
         broot = {
           enable = true;
