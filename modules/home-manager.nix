@@ -85,8 +85,6 @@
         tmux.enable = true;
         jq.enable = true;
         direnv.enable = true;
-        television.enable = true;
-        nix-search-tv.enable = true;
 
         broot = {
           enable = true;

@@ -156,10 +156,10 @@
     openFirewall = false; # only via VPN/Wireguard/Tailscale
     settings = {
       PasswordAuthentication = false;
-      AllowUsers = ["stefan"];
+      AllowUsers = ["stefan" "root"];
       UseDns = true;
       X11Forwarding = false;
-      PermitRootLogin = "no";
+      PermitRootLogin = "yes";
     };
   };
 
