@@ -456,6 +456,8 @@
         ("https://seattledataguy.substack.com/feed" blog)
         ("https://martinfowler.com/feed.atom" blog)
         ("http://jpkoning.blogspot.com/feeds/posts/default?alt=rss" blog)
+        ("https://motherduck.com/rss.xml" blog)
+        ("https://dataengineeringcentral.substack.com/feed" blog)
         ))
   :config
   (defface interesting-elfeed-entry
