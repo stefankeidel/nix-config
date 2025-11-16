@@ -135,7 +135,7 @@
 
           shellAliases = {
             ll = "eza -l";
-            update-nix = "sudo nix run nix-darwin -- switch --flake ~/code/nix-config";
+            update-nix = "sudo -H nix run nix-darwin -- switch --flake ~/code/nix-config";
             #pythonShell = "nix develop ~/code/nix-config/#python311 -c $SHELL";
             k = "kubectl -n data";
             h = "helm --namespace data";
