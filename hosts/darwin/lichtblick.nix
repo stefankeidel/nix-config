@@ -11,6 +11,8 @@
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     inputs.kubeloginpin.legacyPackages."${pkgs.system}".kubelogin
+    pkgs.duckdb
+    pkgs.k3s
     pkgs.k9s
     pkgs.kubectl
     pkgs.kubectx
