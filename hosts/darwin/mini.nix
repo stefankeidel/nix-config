@@ -15,6 +15,7 @@
     pkgs.streamlink
     pkgs.vfkit
     pkgs.yt-dlp
+    pkgs.qemu
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
