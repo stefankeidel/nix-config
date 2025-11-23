@@ -24,7 +24,7 @@
 
       /run/current-system/sw/bin/pg_dump -U postgres -d accounting -f /var/lib/nextcloud/accounting.sql
 
-      /run/current-system/sw/bin/restic --password-file /run/agenix/restic --repo /var/bak/restic backup /var/lib/nextcloud --skip-if-unchanged
+      /run/current-system/sw/bin/restic --password-file /run/agenix/restic --repo /var/bak/restic backup /var/lib/nextcloud /var/lib/actualbudget --skip-if-unchanged
 
       /run/current-system/sw/bin/restic --password-file /run/agenix/restic --repo /var/bak/restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 1 --prune
 
