@@ -3,7 +3,7 @@
 {
   virtualisation.oci-containers.containers = {
     actual = {
-      image = "actualbudget/actual-server:25.2.1";
+      image = "actualbudget/actual-server:25.11.0";
 
       # bind to tailnet only
       ports = [
