@@ -103,13 +103,12 @@
     restic
     ripgrep
     rsync
+    screen
     speedtest-go
     tailscale
     vim
     vnstat
     wget
-    poetry
-    python312
     inputs.agenix.packages.${system}.default
   ];
 
