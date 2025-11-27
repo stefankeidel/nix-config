@@ -11,6 +11,7 @@
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     pkgs.ffmpeg
+    pkgs.mosh
     pkgs.ghostscript
     pkgs.streamlink
     pkgs.vfkit
