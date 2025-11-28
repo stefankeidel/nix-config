@@ -11,6 +11,11 @@
 
     nix-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
+    nix-rosetta-builder = {
+      url = "github:cpick/nix-rosetta-builder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,10 +54,21 @@
     agenix,
     kubeloginpin,
     deploy-rs,
+    nix-rosetta-builder,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        agenix.nixosModules.default
+        ./hosts/nixie/configuration.nix
+      ];
+    };
+    nixosConfigurations.derp = nix-stable.lib.nixosSystem {
+      system = "aarch64-linux";
       specialArgs = {
         inherit inputs;
       };
@@ -82,6 +98,17 @@
           home-manager.darwinModules.home-manager
           # custom settings for this machine
           ./hosts/darwin/lichtblick.nix
+          # An existing Linux builder is needed to initially bootstrap `nix-rosetta-builder`.
+          # If one isn't already available: comment out the `nix-rosetta-builder` module below,
+          # uncomment this `linux-builder` module, and run `darwin-rebuild switch`:
+          #{ nix.linux-builder.enable = true;}
+          # Then: uncomment `nix-rosetta-builder`, remove `linux-builder`, and `darwin-rebuild switch`
+          # a second time. Subsequently, `nix-rosetta-builder` can rebuild itself.
+          # nix-rosetta-builder.darwinModules.default
+          # {
+          #   # see available options in module.nix's `options.nix-rosetta-builder`
+          #   nix-rosetta-builder.onDemand = true;
+          # }
         ];
       };
       # Mac mini at home
@@ -124,13 +151,6 @@
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
         };
       };
-    };
-
-    # Convenience app for deploying nixie
-    # Usage: nix run .#deploy
-    apps.aarch64-darwin.deploy = {
-      type = "app";
-      program = "${deploy-rs.packages.aarch64-darwin.default}/bin/deploy";
     };
   };
 }

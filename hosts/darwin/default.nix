@@ -139,7 +139,7 @@
   environment.systemPackages = with pkgs; [
     (emacs.override { withNativeCompilation = false; })
     #emacs
-    inputs.agenix.packages.${system}.default
+    inputs.agenix.packages.${stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
