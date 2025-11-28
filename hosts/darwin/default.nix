@@ -75,6 +75,21 @@
   nix.settings.extra-substituters = "https://cache.nixos.org https://nix-community.cachix.org https://sylvorg.cachix.org";
   nix.settings.extra-trusted-public-keys = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= sylvorg.cachix.org-1:xd1jb7cDkzX+D+Wqt6TemzkJH9u9esXEFu1yaR9p8H8=";
 
+  # remote building
+  nix.settings.trusted-users = [ "root" "@admin" ];
+  nix.distributedBuilds = true;
+
+  nix.buildMachines = [ {
+    hostName = "135.181.26.1";
+    system = "aarch64-linux";
+    protocol = "ssh-ng";
+
+  }];
+
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
+
   # trackpad stuff
   system.defaults.trackpad.TrackpadRightClick = true;
   system.defaults.trackpad.Clicking = false;

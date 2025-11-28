@@ -74,7 +74,7 @@
       };
       modules = [
         agenix.nixosModules.default
-        ./hosts/nixie/configuration.nix
+#
       ];
     };
     # Mac Laptop crap
