@@ -75,6 +75,10 @@
   nix.settings.extra-substituters = "https://cache.nixos.org https://nix-community.cachix.org https://sylvorg.cachix.org";
   nix.settings.extra-trusted-public-keys = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= sylvorg.cachix.org-1:xd1jb7cDkzX+D+Wqt6TemzkJH9u9esXEFu1yaR9p8H8=";
 
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
+
   # trackpad stuff
   system.defaults.trackpad.TrackpadRightClick = true;
   system.defaults.trackpad.Clicking = false;
@@ -136,10 +140,30 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
+  programs.ssh.extraConfig = ''
+    Host lima-ubuntu24
+      IdentityFile "/Users/stefan/.lima/_config/user"
+      StrictHostKeyChecking no
+      UserKnownHostsFile /dev/null
+      NoHostAuthenticationForLocalhost yes
+      PreferredAuthentications publickey
+      Compression no
+      BatchMode yes
+      IdentitiesOnly yes
+      GSSAPIAuthentication no
+      Ciphers "^aes128-gcm@openssh.com,aes256-gcm@openssh.com"
+      User stefan
+      ControlMaster auto
+      ControlPath "/Users/stefan/.lima/ubuntu24/ssh.sock"
+      ControlPersist yes
+      Hostname 127.0.0.1
+      Port 52601
+  '';
+
   environment.systemPackages = with pkgs; [
     (emacs.override { withNativeCompilation = false; })
     #emacs
-    inputs.agenix.packages.${system}.default
+    inputs.agenix.packages.${stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
