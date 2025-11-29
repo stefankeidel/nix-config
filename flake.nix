@@ -11,6 +11,7 @@
 
     nix-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    nixos-lima.url = "github:nixos-lima/nixos-lima/";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,6 +52,7 @@
     kubeloginpin,
     deploy-rs,
     determinate,
+    nixos-lima,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
@@ -63,14 +65,14 @@
         ./hosts/nixie/configuration.nix
       ];
     };
-    nixosConfigurations.derp = nix-stable.lib.nixosSystem {
+    nixosConfigurations.nixos = nix-stable.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {
-        inherit inputs;
+        inherit inputs nixos-lima;
       };
       modules = [
         agenix.nixosModules.default
-#
+        ./hosts/nixos/configuration.nix
       ];
     };
     # Mac Laptop crap
