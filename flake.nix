@@ -10,6 +10,7 @@
     };
 
     nix-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -49,6 +50,7 @@
     agenix,
     kubeloginpin,
     deploy-rs,
+    determinate,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
@@ -59,6 +61,16 @@
       modules = [
         agenix.nixosModules.default
         ./hosts/nixie/configuration.nix
+      ];
+    };
+    nixosConfigurations.derp = nix-stable.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        agenix.nixosModules.default
+#
       ];
     };
     # Mac Laptop crap
@@ -80,6 +92,7 @@
           ./hosts/darwin/default.nix
           agenix.nixosModules.default
           home-manager.darwinModules.home-manager
+          inputs.determinate.darwinModules.default
           # custom settings for this machine
           ./hosts/darwin/lichtblick.nix
         ];
@@ -101,6 +114,7 @@
           ./hosts/darwin/default.nix
           agenix.nixosModules.default
           home-manager.darwinModules.home-manager
+          inputs.determinate.darwinModules.default
           # custom settings for this machine
           ./hosts/darwin/mini.nix
         ];
@@ -124,13 +138,6 @@
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
         };
       };
-    };
-
-    # Convenience app for deploying nixie
-    # Usage: nix run .#deploy
-    apps.aarch64-darwin.deploy = {
-      type = "app";
-      program = "${deploy-rs.packages.aarch64-darwin.default}/bin/deploy";
     };
   };
 }
