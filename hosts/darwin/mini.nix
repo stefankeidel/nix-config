@@ -17,7 +17,6 @@
     pkgs.vfkit
     pkgs.yt-dlp
     pkgs.qemu
-    pkgs.lima
     (writeShellScriptBin "do_bak" ''
       #!/usr/bin/env zsh
       set -e
