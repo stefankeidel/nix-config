@@ -76,6 +76,19 @@
   environment.systemPackages = with pkgs; [
       vim
       git
+      tailscale
+      wget
+  ];
+
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "server";
+
+
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [
+    80 # http
+    443 # https
+    41641 # tailscale
   ];
 
   # The usual warnings about changing `stateVersion` apply. Make sure to find and read them
