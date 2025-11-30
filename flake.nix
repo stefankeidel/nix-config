@@ -142,11 +142,11 @@
       };
       nodes.nixon = {
         # Adjust to a reachable SSH host/IP (e.g. tailscale IP or public DNS)
-        hostname = "2a01:4f8:c010:8e39::1";
+        hostname = "nixon";
         # Build the system derivation on the remote (Linux) host instead of
         # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
         remoteBuild = true;
-        sshUser = "root";
+        sshUser = "stefan";
         profiles.system = {
           user = "root";
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixon;
