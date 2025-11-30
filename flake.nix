@@ -65,14 +65,14 @@
         ./hosts/nixie/configuration.nix
       ];
     };
-    nixosConfigurations.nixos = nix-stable.lib.nixosSystem {
-      system = "aarch64-linux";
+    nixosConfigurations.nixon = nix-stable.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {
-        inherit inputs nixos-lima;
+        inherit inputs;
       };
       modules = [
         agenix.nixosModules.default
-        ./hosts/nixos/configuration.nix
+        ./hosts/nixon/configuration.nix
       ];
     };
     # Mac Laptop crap
@@ -138,6 +138,18 @@
         profiles.system = {
           user = "root";
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixie;
+        };
+      };
+      nodes.nixon = {
+        # Adjust to a reachable SSH host/IP (e.g. tailscale IP or public DNS)
+        hostname = "168.119.96.27";
+        # Build the system derivation on the remote (Linux) host instead of
+        # attempting to build x86_64-linux derivations on the local aarch64-darwin machine.
+        remoteBuild = true;
+        sshUser = "root";
+        profiles.system = {
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixon;
         };
       };
     };
