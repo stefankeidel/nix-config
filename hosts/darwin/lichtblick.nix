@@ -9,9 +9,7 @@
 }: {
   ids.gids.nixbld = 350;
 
-  # Determinate uses its own daemon to manage the Nix installation that
-  # conflicts with nix-darwin’s native Nix management.
-  nix.enable = false;
+  nix.enable = true;
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     inputs.kubeloginpin.legacyPackages."${pkgs.stdenv.hostPlatform.system}".kubelogin

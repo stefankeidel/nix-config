@@ -10,8 +10,6 @@
     };
 
     nix-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-    nixos-lima.url = "github:nixos-lima/nixos-lima/";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,8 +49,6 @@
     agenix,
     kubeloginpin,
     deploy-rs,
-    determinate,
-    nixos-lima,
     ...
   }: {
     nixosConfigurations.nixie = nix-stable.lib.nixosSystem {
@@ -94,7 +90,6 @@
           ./hosts/darwin/default.nix
           agenix.nixosModules.default
           home-manager.darwinModules.home-manager
-          inputs.determinate.darwinModules.default
           # custom settings for this machine
           ./hosts/darwin/lichtblick.nix
         ];
@@ -116,7 +111,6 @@
           ./hosts/darwin/default.nix
           agenix.nixosModules.default
           home-manager.darwinModules.home-manager
-          inputs.determinate.darwinModules.default
           # custom settings for this machine
           ./hosts/darwin/mini.nix
         ];
