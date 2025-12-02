@@ -10,6 +10,16 @@
   ids.gids.nixbld = 350;
 
   nix.enable = true;
+  # yes, I know what this means
+  nix.settings.trusted-users = [ "root" "stefan.keidel@lichtblick.de" ];
+
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+    # config = ({ ... }: {
+    #   virtualisation.darwin-builder.diskSize = 30 * 1024;
+    # });
+  };
 
   home-manager.users.${userConfig.name}.home.packages = with pkgs; [
     inputs.kubeloginpin.legacyPackages."${pkgs.stdenv.hostPlatform.system}".kubelogin
