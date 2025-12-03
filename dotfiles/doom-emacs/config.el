@@ -420,8 +420,8 @@
         ("https://industrydecarbonization.com/rss.xml" blog interesting)
         ("https://www.bloodinthemachine.com/feed" blog)
         ("https://climatedrift.substack.com/feed" blog)
-        ("https://pluralistic.net/feed/" blog) ; cory doctorow
-        ("https://craphound.com/feed" blog) ; his long form blog 
+        ("https://craphound.com/feed" blog) ; his long form blog
+        ("https://pagedout.institute/rss.xml" blog)
 
         ; econ and random stuff
         ("https://www.lesswrong.com/feed.xml?view=curated-rss" blog)
